@@ -1,2 +1,2 @@
 #!/bin/bash
-ncu -x '/^@material.*/' $1
+ncu -x '@material-ui/core, babel-eslint, eslint' $1

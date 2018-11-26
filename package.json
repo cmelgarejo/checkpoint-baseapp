@@ -14,10 +14,19 @@
     "lint:check": "eslint . --ext=js,jsx",
     "lint:fix": "eslint . --ext=js,jsx --fix",
     "node_modules": "rm -rf node_modules/ && rm -rf package-lock.json",
-    "node_modules-w": "rmdir node_modules /s && del package-lock.json",
+    "node_modules-w": "rmdir node_modules /s /q && del package-lock.json",
     "install:clean": "npm run node_modules && npm install && npm start",
     "install:clean-w": "npm run node_modules-w && npm install && npm start"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -42,26 +51,16 @@
     "react-table": "6.8.6",
     "react-tagsinput": "3.19.0"
   },
-  "devDependencies": {
+  "optionalDependencies": {
     "@babel/core": "7.1.6",
     "@types/googlemaps": "3.30.16",
     "@types/markerclustererplus": "2.1.33",
     "ajv": "6.5.5",
-    "babel-eslint": "10.0.1",
-    "eslint": "5.9.0",
+    "babel-eslint": "9.0.0",
+    "eslint": "5.6.0",
     "eslint-config-prettier": "3.3.0",
     "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-react": "7.11.1",
-    "eslint-config-react-app": "^3.0.5",
     "prettier": "1.15.2"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
