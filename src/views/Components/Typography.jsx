@@ -1,41 +1,41 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles from '@material-ui/core/styles/withStyles'
 
 // core components
-import Quote from "components/Typography/Quote.jsx";
-import Muted from "components/Typography/Muted.jsx";
-import Primary from "components/Typography/Primary.jsx";
-import Info from "components/Typography/Info.jsx";
-import Success from "components/Typography/Success.jsx";
-import Warning from "components/Typography/Warning.jsx";
-import Danger from "components/Typography/Danger.jsx";
-import Heading from "components/Heading/Heading.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
+import Quote from 'components/Typography/Quote.jsx'
+import Muted from 'components/Typography/Muted.jsx'
+import Primary from 'components/Typography/Primary.jsx'
+import Info from 'components/Typography/Info.jsx'
+import Success from 'components/Typography/Success.jsx'
+import Warning from 'components/Typography/Warning.jsx'
+import Danger from 'components/Typography/Danger.jsx'
+import Heading from 'components/Heading/Heading.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
 
 const style = {
   typo: {
-    paddingLeft: "25%",
-    marginBottom: "40px",
-    position: "relative"
+    paddingLeft: '25%',
+    marginBottom: '40px',
+    position: 'relative'
   },
   note: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    bottom: "10px",
-    color: "#c0c1c2",
-    display: "block",
-    fontWeight: "400",
-    fontSize: "13px",
-    lineHeight: "13px",
-    left: "0",
-    marginLeft: "20px",
-    position: "absolute",
-    width: "260px"
+    bottom: '10px',
+    color: '#c0c1c2',
+    display: 'block',
+    fontWeight: '400',
+    fontSize: '13px',
+    lineHeight: '13px',
+    left: '0',
+    marginLeft: '20px',
+    position: 'absolute',
+    width: '260px'
   }
-};
+}
 function Typography({ ...props }) {
   return (
     <div>
@@ -132,18 +132,19 @@ function Typography({ ...props }) {
           <div className={props.classes.typo}>
             <div className={props.classes.note}>Small Tag</div>
             <h2>
-              Header with small subtitle<br />
+              Header with small subtitle
+              <br />
               <small>Use "small" tag for the headers</small>
             </h2>
           </div>
         </CardBody>
       </Card>
     </div>
-  );
+  )
 }
 
 Typography.propTypes = {
   classes: PropTypes.object.isRequired
-};
+}
 
-export default withStyles(style)(Typography);
+export default withStyles(style)(Typography)

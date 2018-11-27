@@ -1,2 +1,2 @@
 #!/bin/bash
-ncu -x '@material-ui/core, babel-eslint, eslint' $1
+ncu -x 'babel-eslint, eslint' $1

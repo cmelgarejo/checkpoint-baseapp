@@ -42,7 +42,7 @@ class Wizard extends React.Component {
       movingTabStyle: {
         transition: 'transform 0s'
       },
-      allStates: {}
+      allStates: []
     }
     this.navigationStepChange = this.navigationStepChange.bind(this)
     this.refreshAnimation = this.refreshAnimation.bind(this)
@@ -114,6 +114,7 @@ class Wizard extends React.Component {
         this[this.props.steps[this.state.currentStep].stepId].sendState !==
         undefined
       ) {
+        console.log(this.state.allStates)
         this.setState({
           allStates: [
             ...this.state.allStates,
@@ -238,7 +239,7 @@ class Wizard extends React.Component {
                     style={{ width: this.state.width }}
                   >
                     <a
-                      href="#"
+                      href=""
                       className={classes.stepsAnchor}
                       onClick={() => this.navigationStepChange(key)}
                     >
