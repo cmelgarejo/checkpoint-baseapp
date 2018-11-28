@@ -19,7 +19,7 @@ import dashboardRoutes from 'routes/dashboard.jsx'
 import appStyle from 'assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx'
 
 import image from 'assets/img/sidebar-2.jpg'
-import logo from 'assets/img/logo-white.svg'
+import logo from 'assets/img/big-logo.png'
 
 const switchRoutes = (
   <Switch>

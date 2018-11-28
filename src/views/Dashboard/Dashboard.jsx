@@ -1,64 +1,64 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 // react plugin for creating charts
-import ChartistGraph from "react-chartist";
+import ChartistGraph from 'react-chartist'
 // react plugin for creating vector maps
-import { VectorMap } from "react-jvectormap";
+import { VectorMap } from 'react-jvectormap'
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import Tooltip from "@material-ui/core/Tooltip";
-import Icon from "@material-ui/core/Icon";
+import withStyles from '@material-ui/core/styles/withStyles'
+import Tooltip from '@material-ui/core/Tooltip'
+import Icon from '@material-ui/core/Icon'
 
 // @material-ui/icons
 // import ContentCopy from "@material-ui/icons/ContentCopy";
-import Store from "@material-ui/icons/Store";
+import Store from '@material-ui/icons/Store'
 // import InfoOutline from "@material-ui/icons/InfoOutline";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Refresh from "@material-ui/icons/Refresh";
-import Edit from "@material-ui/icons/Edit";
-import Place from "@material-ui/icons/Place";
-import ArtTrack from "@material-ui/icons/ArtTrack";
-import Language from "@material-ui/icons/Language";
+import Warning from '@material-ui/icons/Warning'
+import DateRange from '@material-ui/icons/DateRange'
+import LocalOffer from '@material-ui/icons/LocalOffer'
+import Update from '@material-ui/icons/Update'
+import ArrowUpward from '@material-ui/icons/ArrowUpward'
+import AccessTime from '@material-ui/icons/AccessTime'
+import Refresh from '@material-ui/icons/Refresh'
+import Edit from '@material-ui/icons/Edit'
+import Place from '@material-ui/icons/Place'
+import ArtTrack from '@material-ui/icons/ArtTrack'
+import Language from '@material-ui/icons/Language'
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Table from "components/Table/Table.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Danger from "components/Typography/Danger.jsx";
-import Card from "components/Card/Card.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardIcon from "components/Card/CardIcon.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardFooter from "components/Card/CardFooter.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Table from 'components/Table/Table.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import Danger from 'components/Typography/Danger.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardHeader from 'components/Card/CardHeader.jsx'
+import CardIcon from 'components/Card/CardIcon.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
+import CardFooter from 'components/Card/CardFooter.jsx'
 
 import {
   dailySalesChart,
   emailsSubscriptionChart,
   completedTasksChart
-} from "variables/charts";
+} from 'variables/charts'
 
-import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
+import dashboardStyle from 'assets/jss/material-dashboard-pro-react/views/dashboardStyle'
 
-import priceImage1 from "assets/img/card-2.jpeg";
-import priceImage2 from "assets/img/card-3.jpeg";
-import priceImage3 from "assets/img/card-1.jpeg";
+import priceImage1 from 'assets/img/card-2.jpeg'
+import priceImage2 from 'assets/img/card-3.jpeg'
+import priceImage3 from 'assets/img/card-1.jpeg'
 
-const us_flag = require("assets/img/flags/US.png");
-const de_flag = require("assets/img/flags/DE.png");
-const au_flag = require("assets/img/flags/AU.png");
-const gb_flag = require("assets/img/flags/GB.png");
-const ro_flag = require("assets/img/flags/RO.png");
-const br_flag = require("assets/img/flags/BR.png");
+const us_flag = require('assets/img/flags/US.png')
+const de_flag = require('assets/img/flags/DE.png')
+const au_flag = require('assets/img/flags/AU.png')
+const gb_flag = require('assets/img/flags/GB.png')
+const ro_flag = require('assets/img/flags/RO.png')
+const br_flag = require('assets/img/flags/BR.png')
 
 var mapData = {
-  AU: 760,
+  AU: 11760,
   BR: 550,
   CA: 120,
   DE: 1300,
@@ -69,20 +69,20 @@ var mapData = {
   RO: 600,
   RU: 300,
   US: 2920
-};
+}
 
 class Dashboard extends React.Component {
   state = {
     value: 0
-  };
+  }
   handleChange = (event, value) => {
-    this.setState({ value });
-  };
+    this.setState({ value })
+  }
   handleChangeIndex = index => {
-    this.setState({ value: index });
-  };
+    this.setState({ value: index })
+  }
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     return (
       <div>
         <GridContainer>
@@ -179,68 +179,68 @@ class Dashboard extends React.Component {
                       tableData={[
                         [
                           <img src={us_flag} alt="us_flag" />,
-                          "USA",
-                          "2.920",
-                          "53.23%"
+                          'USA',
+                          '2.920',
+                          '53.23%'
                         ],
                         [
                           <img src={de_flag} alt="us_flag" />,
-                          "Germany",
-                          "1.300",
-                          "20.43%"
+                          'Germany',
+                          '1.300',
+                          '20.43%'
                         ],
                         [
                           <img src={au_flag} alt="us_flag" />,
-                          "Australia",
-                          "760",
-                          "10.35%"
+                          'Australia',
+                          '760',
+                          '10.35%'
                         ],
                         [
                           <img src={gb_flag} alt="us_flag" />,
-                          "United Kingdom",
-                          "690",
-                          "7.87%"
+                          'United Kingdom',
+                          '690',
+                          '7.87%'
                         ],
                         [
                           <img src={ro_flag} alt="us_flag" />,
-                          "Romania",
-                          "600",
-                          "5.94%"
+                          'Romania',
+                          '600',
+                          '5.94%'
                         ],
                         [
                           <img src={br_flag} alt="us_flag" />,
-                          "Brasil",
-                          "550",
-                          "4.34%"
+                          'Brasil',
+                          '550',
+                          '4.34%'
                         ]
                       ]}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
                     <VectorMap
-                      map={"world_mill"}
+                      map={'world_mill'}
                       backgroundColor="transparent"
                       zoomOnScroll={false}
                       containerStyle={{
-                        width: "100%",
-                        height: "280px"
+                        width: '100%',
+                        height: '280px'
                       }}
                       containerClassName="map"
                       regionStyle={{
                         initial: {
-                          fill: "#e4e4e4",
-                          "fill-opacity": 0.9,
-                          stroke: "none",
-                          "stroke-width": 0,
-                          "stroke-opacity": 0
+                          fill: '#e4e4e4',
+                          'fill-opacity': 0.9,
+                          stroke: 'none',
+                          'stroke-width': 0,
+                          'stroke-opacity': 0
                         }
                       }}
                       series={{
                         regions: [
                           {
                             values: mapData,
-                            scale: ["#AAAAAA", "#444444"],
-                            normalizeFunction: "polynomial"
+                            scale: ['#AAAAAA', '#444444'],
+                            normalizeFunction: 'polynomial'
                           }
                         ]
                       }}
@@ -290,7 +290,7 @@ class Dashboard extends React.Component {
                 <p className={classes.cardCategory}>
                   <span className={classes.successText}>
                     <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-                  </span>{" "}
+                  </span>{' '}
                   increase in today sales.
                 </p>
               </CardBody>
@@ -583,12 +583,12 @@ class Dashboard extends React.Component {
           </GridItem>
         </GridContainer>
       </div>
-    );
+    )
   }
 }
 
 Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
-};
+}
 
-export default withStyles(dashboardStyle)(Dashboard);
+export default withStyles(dashboardStyle)(Dashboard)
