@@ -1,53 +1,64 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
+import withStyles from '@material-ui/core/styles/withStyles'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Icon from '@material-ui/core/Icon'
 
 // @material-ui/icons
-import Face from "@material-ui/icons/Face";
-import Email from "@material-ui/icons/Email";
+// import Face from '@material-ui/icons/Face'
+import Email from '@material-ui/icons/Email'
 // import LockOutline from "@material-ui/icons/LockOutline";
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardFooter from "components/Card/CardFooter.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import CustomInput from 'components/CustomInput/CustomInput.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
+import CardHeader from 'components/Card/CardHeader.jsx'
+import CardFooter from 'components/Card/CardFooter.jsx'
 
-import loginPageStyle from "assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx";
+import loginPageStyle from 'assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx'
+
+import { withNamespaces } from 'react-i18next'
 
 class LoginPage extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden"
-    };
+      cardAnimaton: 'cardHidden'
+    }
   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
     this.timeOutFunction = setTimeout(
       function() {
-        this.setState({ cardAnimaton: "" });
+        this.setState({ cardAnimaton: '' })
       }.bind(this),
       700
-    );
+    )
   }
   componentWillUnmount() {
-    clearTimeout(this.timeOutFunction);
-    this.timeOutFunction = null;
+    clearTimeout(this.timeOutFunction)
+    this.timeOutFunction = null
   }
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
+    const { t, i18n } = this.props
+
+    const changeLanguage = lng => {
+      i18n.changeLanguage(lng)
+    }
+
     return (
       <div className={classes.container}>
+        <button onClick={() => changeLanguage('es')}>es</button>
+        <button onClick={() => changeLanguage('en')}>en</button>
+
         <GridContainer justify="center">
           <GridItem xs={12} sm={6} md={4}>
             <form>
@@ -56,12 +67,12 @@ class LoginPage extends React.Component {
                   className={`${classes.cardHeader} ${classes.textCenter}`}
                   color="rose"
                 >
-                  <h4 className={classes.cardTitle}>Log in</h4>
+                  <h4 className={classes.cardTitle}>{t('login')}</h4>
                   <div className={classes.socialLine}>
                     {[
-                      "fab fa-facebook-square",
-                      "fab fa-twitter",
-                      "fab fa-google-plus"
+                      'fab fa-facebook-square',
+                      'fab fa-twitter',
+                      'fab fa-google-plus'
                     ].map((prop, key) => {
                       return (
                         <Button
@@ -72,27 +83,13 @@ class LoginPage extends React.Component {
                         >
                           <i className={prop} />
                         </Button>
-                      );
+                      )
                     })}
                   </div>
                 </CardHeader>
                 <CardBody>
                   <CustomInput
-                    labelText="First Name.."
-                    id="firstname"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <Face className={classes.inputAdornmentIcon} />
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Email..."
+                    labelText="Email"
                     id="email"
                     formControlProps={{
                       fullWidth: true
@@ -132,12 +129,12 @@ class LoginPage extends React.Component {
           </GridItem>
         </GridContainer>
       </div>
-    );
+    )
   }
 }
 
 LoginPage.propTypes = {
   classes: PropTypes.object.isRequired
-};
+}
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withNamespaces('login')(withStyles(loginPageStyle)(LoginPage))

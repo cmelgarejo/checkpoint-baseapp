@@ -1,75 +1,75 @@
-import React from "react";
+import React from 'react'
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import Checkbox from "@material-ui/core/Checkbox";
+import withStyles from '@material-ui/core/styles/withStyles'
+import Checkbox from '@material-ui/core/Checkbox'
 
 // material-ui icons
-import Assignment from "@material-ui/icons/Assignment";
-import Person from "@material-ui/icons/Person";
-import Edit from "@material-ui/icons/Edit";
-import Close from "@material-ui/icons/Close";
-import Check from "@material-ui/icons/Check";
-import Remove from "@material-ui/icons/Remove";
-import Add from "@material-ui/icons/Add";
-import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import Assignment from '@material-ui/icons/Assignment'
+import Person from '@material-ui/icons/Person'
+import Edit from '@material-ui/icons/Edit'
+import Close from '@material-ui/icons/Close'
+import Check from '@material-ui/icons/Check'
+import Remove from '@material-ui/icons/Remove'
+import Add from '@material-ui/icons/Add'
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Table from "components/Table/Table.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardIcon from "components/Card/CardIcon.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Table from 'components/Table/Table.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
+import CardIcon from 'components/Card/CardIcon.jsx'
+import CardHeader from 'components/Card/CardHeader.jsx'
 
-import extendedTablesStyle from "assets/jss/material-dashboard-pro-react/views/extendedTablesStyle.jsx";
+import extendedTablesStyle from 'assets/jss/material-dashboard-pro-react/views/extendedTablesStyle.jsx'
 
-import product1 from "assets/img/product1.jpg";
-import product2 from "assets/img/product2.jpg";
-import product3 from "assets/img/product3.jpg";
+import product1 from 'assets/img/road.jpeg'
+import product2 from 'assets/img/road.jpeg'
+import product3 from 'assets/img/road.jpeg'
 
 class ExtendedTables extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       checked: []
-    };
-    this.handleToggle = this.handleToggle.bind(this);
+    }
+    this.handleToggle = this.handleToggle.bind(this)
   }
   handleToggle(value) {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+    const { checked } = this.state
+    const currentIndex = checked.indexOf(value)
+    const newChecked = [...checked]
 
     if (currentIndex === -1) {
-      newChecked.push(value);
+      newChecked.push(value)
     } else {
-      newChecked.splice(currentIndex, 1);
+      newChecked.splice(currentIndex, 1)
     }
 
     this.setState({
       checked: newChecked
-    });
+    })
   }
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     const fillButtons = [
-      { color: "info", icon: Person },
-      { color: "success", icon: Edit },
-      { color: "danger", icon: Close }
+      { color: 'info', icon: Person },
+      { color: 'success', icon: Edit },
+      { color: 'danger', icon: Close }
     ].map((prop, key) => {
       return (
         <Button color={prop.color} className={classes.actionButton} key={key}>
           <prop.icon className={classes.icon} />
         </Button>
-      );
-    });
+      )
+    })
     const simpleButtons = [
-      { color: "info", icon: Person },
-      { color: "success", icon: Edit },
-      { color: "danger", icon: Close }
+      { color: 'info', icon: Person },
+      { color: 'success', icon: Edit },
+      { color: 'danger', icon: Close }
     ].map((prop, key) => {
       return (
         <Button
@@ -80,24 +80,24 @@ class ExtendedTables extends React.Component {
         >
           <prop.icon className={classes.icon} />
         </Button>
-      );
-    });
+      )
+    })
     const roundButtons = [
-      { color: "info", icon: Person },
-      { color: "success", icon: Edit },
-      { color: "danger", icon: Close }
+      { color: 'info', icon: Person },
+      { color: 'success', icon: Edit },
+      { color: 'danger', icon: Close }
     ].map((prop, key) => {
       return (
         <Button
           round
           color={prop.color}
-          className={classes.actionButton + " " + classes.actionButtonRound}
+          className={classes.actionButton + ' ' + classes.actionButtonRound}
           key={key}
         >
           <prop.icon className={classes.icon} />
         </Button>
-      );
-    });
+      )
+    })
     return (
       <GridContainer>
         <GridItem xs={12}>
@@ -111,45 +111,45 @@ class ExtendedTables extends React.Component {
             <CardBody>
               <Table
                 tableHead={[
-                  "#",
-                  "Name",
-                  "Job Position",
-                  "Since",
-                  "Salary",
-                  "Actions"
+                  '#',
+                  'Name',
+                  'Job Position',
+                  'Since',
+                  'Salary',
+                  'Actions'
                 ]}
                 tableData={[
                   [
-                    "1",
-                    "Andrew Mike",
-                    "Develop",
-                    "2013",
-                    "€ 99,225",
+                    '1',
+                    'Andrew Mike',
+                    'Develop',
+                    '2013',
+                    '€ 99,225',
                     fillButtons
                   ],
-                  ["2", "John Doe", "Design", "2012", "€ 89,241", roundButtons],
+                  ['2', 'John Doe', 'Design', '2012', '€ 89,241', roundButtons],
                   [
-                    "3",
-                    "Alex Mike",
-                    "Design",
-                    "2010",
-                    "€ 92,144",
+                    '3',
+                    'Alex Mike',
+                    'Design',
+                    '2010',
+                    '€ 92,144',
                     simpleButtons
                   ],
                   [
-                    "4",
-                    "Mike Monday",
-                    "Marketing",
-                    "2013",
-                    "€ 49,990",
+                    '4',
+                    'Mike Monday',
+                    'Marketing',
+                    '2013',
+                    '€ 49,990',
                     roundButtons
                   ],
                   [
-                    "5",
-                    "Paul Dickens",
-                    "Communication",
-                    "2015",
-                    "€ 69,201",
+                    '5',
+                    'Paul Dickens',
+                    'Communication',
+                    '2015',
+                    '€ 69,201',
                     fillButtons
                   ]
                 ]}
@@ -181,17 +181,17 @@ class ExtendedTables extends React.Component {
               <Table
                 striped
                 tableHead={[
-                  "#",
-                  "",
-                  "Product Name",
-                  "Type",
-                  "Qty",
-                  "Price",
-                  "Amount"
+                  '#',
+                  '',
+                  'Product Name',
+                  'Type',
+                  'Qty',
+                  'Price',
+                  'Amount'
                 ]}
                 tableData={[
                   [
-                    "1",
+                    '1',
                     <Checkbox
                       className={classes.positionAbsolute}
                       tabIndex={-1}
@@ -203,14 +203,14 @@ class ExtendedTables extends React.Component {
                         root: classes.checkRoot
                       }}
                     />,
-                    "Moleskine Agenda",
-                    "Office",
-                    "25",
-                    "€ 49",
-                    "€ 1,225"
+                    'Moleskine Agenda',
+                    'Office',
+                    '25',
+                    '€ 49',
+                    '€ 1,225'
                   ],
                   [
-                    "2",
+                    '2',
                     <Checkbox
                       className={classes.positionAbsolute}
                       tabIndex={-1}
@@ -222,14 +222,14 @@ class ExtendedTables extends React.Component {
                         root: classes.checkRoot
                       }}
                     />,
-                    "Stabilo Pen",
-                    "Office",
-                    "30",
-                    "€ 10",
-                    "€ 300"
+                    'Stabilo Pen',
+                    'Office',
+                    '30',
+                    '€ 10',
+                    '€ 300'
                   ],
                   [
-                    "3",
+                    '3',
                     <Checkbox
                       className={classes.positionAbsolute}
                       tabIndex={-1}
@@ -241,14 +241,14 @@ class ExtendedTables extends React.Component {
                         root: classes.checkRoot
                       }}
                     />,
-                    "A4 Paper Pack",
-                    "Office",
-                    "50",
-                    "€ 10.99",
-                    "€ 109"
+                    'A4 Paper Pack',
+                    'Office',
+                    '50',
+                    '€ 10.99',
+                    '€ 109'
                   ],
                   [
-                    "4",
+                    '4',
                     <Checkbox
                       className={classes.positionAbsolute}
                       tabIndex={-1}
@@ -260,14 +260,14 @@ class ExtendedTables extends React.Component {
                         root: classes.checkRoot
                       }}
                     />,
-                    "Apple iPad",
-                    "Communication",
-                    "10",
-                    "€ 499.00",
-                    "€ 4,990"
+                    'Apple iPad',
+                    'Communication',
+                    '10',
+                    '€ 499.00',
+                    '€ 4,990'
                   ],
                   [
-                    "5",
+                    '5',
                     <Checkbox
                       className={classes.positionAbsolute}
                       tabIndex={-1}
@@ -279,13 +279,13 @@ class ExtendedTables extends React.Component {
                         root: classes.checkRoot
                       }}
                     />,
-                    "Apple iPhone",
-                    "Communication",
-                    "10",
-                    "€ 599.00",
-                    "€ 5,999"
+                    'Apple iPhone',
+                    'Communication',
+                    '10',
+                    '€ 599.00',
+                    '€ 5,999'
                   ],
-                  { total: true, colspan: "5", amount: "€12,999" }
+                  { total: true, colspan: '5', amount: '€12,999' }
                 ]}
                 customCellClasses={[
                   classes.center,
@@ -314,14 +314,14 @@ class ExtendedTables extends React.Component {
             <CardBody>
               <Table
                 tableHead={[
-                  "",
-                  "PRODUCT",
-                  "COLOR",
-                  "SIZE",
-                  "PRICE",
-                  "QTY",
-                  "AMOUNT",
-                  ""
+                  '',
+                  'PRODUCT',
+                  'COLOR',
+                  'SIZE',
+                  'PRICE',
+                  'QTY',
+                  'AMOUNT',
+                  ''
                 ]}
                 tableData={[
                   [
@@ -337,8 +337,8 @@ class ExtendedTables extends React.Component {
                         by Dolce&amp;Gabbana
                       </small>
                     </span>,
-                    "Red",
-                    "M",
+                    'Red',
+                    'M',
                     <span>
                       <small className={classes.tdNumberSmall}>€</small> 549
                     </span>,
@@ -376,13 +376,13 @@ class ExtendedTables extends React.Component {
                     </div>,
                     <span>
                       <a href="#jacket" className={classes.tdNameAnchor}>
-                        Short Pants{" "}
+                        Short Pants{' '}
                       </a>
                       <br />
                       <small className={classes.tdNameSmall}>by Pucci</small>
                     </span>,
-                    "Purple",
-                    "M",
+                    'Purple',
+                    'M',
                     <span>
                       <small className={classes.tdNumberSmall}>€</small> 499
                     </span>,
@@ -427,8 +427,8 @@ class ExtendedTables extends React.Component {
                         by Valentino
                       </small>
                     </span>,
-                    "White",
-                    "XL",
+                    'White',
+                    'XL',
                     <span>
                       <small className={classes.tdNumberSmall}>€</small> 799
                     </span>,
@@ -462,7 +462,7 @@ class ExtendedTables extends React.Component {
                   ],
                   {
                     total: true,
-                    colspan: "5",
+                    colspan: '5',
                     amount: (
                       <span>
                         <small>€</small>2,346
@@ -471,12 +471,12 @@ class ExtendedTables extends React.Component {
                   },
                   {
                     purchase: true,
-                    colspan: "6",
+                    colspan: '6',
                     col: {
                       colspan: 2,
                       text: (
                         <Button color="info" round>
-                          Complete Purchase{" "}
+                          Complete Purchase{' '}
                           <KeyboardArrowRight className={classes.icon} />
                         </Button>
                       )
@@ -498,7 +498,7 @@ class ExtendedTables extends React.Component {
                   classes.customFont,
                   classes.customFont,
                   classes.tdNumber,
-                  classes.tdNumber + " " + classes.tdNumberAndButtonGroup,
+                  classes.tdNumber + ' ' + classes.tdNumberAndButtonGroup,
                   classes.tdNumber
                 ]}
                 customClassesForCells={[1, 2, 3, 4, 5, 6]}
@@ -507,8 +507,8 @@ class ExtendedTables extends React.Component {
           </Card>
         </GridItem>
       </GridContainer>
-    );
+    )
   }
 }
 
-export default withStyles(extendedTablesStyle)(ExtendedTables);
+export default withStyles(extendedTablesStyle)(ExtendedTables)

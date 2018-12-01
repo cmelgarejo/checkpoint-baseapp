@@ -46,9 +46,9 @@ import {
 
 import dashboardStyle from 'assets/jss/material-dashboard-pro-react/views/dashboardStyle'
 
-import priceImage1 from 'assets/img/card-2.jpeg'
-import priceImage2 from 'assets/img/card-3.jpeg'
-import priceImage3 from 'assets/img/card-1.jpeg'
+import priceImage1 from 'assets/img/road.jpeg'
+import priceImage2 from 'assets/img/road.jpeg'
+import priceImage3 from 'assets/img/road.jpeg'
 
 const us_flag = require('assets/img/flags/US.png')
 const de_flag = require('assets/img/flags/DE.png')

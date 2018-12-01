@@ -1,47 +1,40 @@
-import React from "react";
+import React from 'react'
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames'
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
+import PropTypes from 'prop-types'
+import SwipeableViews from 'react-swipeable-views'
 
 // material-ui components
-import withStyles from "@material-ui/core/styles/withStyles";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
+import withStyles from '@material-ui/core/styles/withStyles'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
 
-import navPillsStyle from "assets/jss/material-dashboard-pro-react/components/navPillsStyle.jsx";
+import navPillsStyle from 'assets/jss/material-dashboard-pro-react/components/navPillsStyle.jsx'
 
 class NavPills extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       active: props.active
-    };
+    }
   }
   handleChange = (event, active) => {
-    this.setState({ active });
-  };
+    this.setState({ active })
+  }
   handleChangeIndex = index => {
-    this.setState({ active: index });
-  };
+    this.setState({ active: index })
+  }
   render() {
-    const {
-      classes,
-      tabs,
-      direction,
-      color,
-      horizontal,
-      alignCenter
-    } = this.props;
+    const { classes, tabs, color, horizontal, alignCenter } = this.props
     const flexContainerClasses = classNames({
       [classes.flexContainer]: true,
       [classes.horizontalDisplay]: horizontal !== undefined
-    });
+    })
     const tabButtons = (
       <Tabs
         classes={{
@@ -55,15 +48,15 @@ class NavPills extends React.Component {
         centered={alignCenter}
       >
         {tabs.map((prop, key) => {
-          var icon = {};
+          var icon = {}
           if (prop.tabIcon !== undefined) {
-            icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
+            icon['icon'] = <prop.tabIcon className={classes.tabIcon} />
           }
           const pillsClasses = classNames({
             [classes.pills]: true,
             [classes.horizontalPills]: horizontal !== undefined,
             [classes.pillsWithIcons]: prop.tabIcon !== undefined
-          });
+          })
           return (
             <Tab
               label={prop.tabButton}
@@ -76,14 +69,14 @@ class NavPills extends React.Component {
                 selected: classes[color]
               }}
             />
-          );
+          )
         })}
       </Tabs>
-    );
+    )
     const tabContent = (
       <div className={classes.contentWrapper}>
         <SwipeableViews
-          axis={direction === "rtl" ? "x-reverse" : "x"}
+          axis={'x'}
           index={this.state.active}
           onChangeIndex={this.handleChangeIndex}
         >
@@ -92,11 +85,11 @@ class NavPills extends React.Component {
               <div className={classes.tabContent} key={key}>
                 {prop.tabContent}
               </div>
-            );
+            )
           })}
         </SwipeableViews>
       </div>
-    );
+    )
     return horizontal !== undefined ? (
       <GridContainer>
         <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
@@ -107,14 +100,14 @@ class NavPills extends React.Component {
         {tabButtons}
         {tabContent}
       </div>
-    );
+    )
   }
 }
 
 NavPills.defaultProps = {
   active: 0,
-  color: "primary"
-};
+  color: 'primary'
+}
 
 NavPills.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -128,12 +121,12 @@ NavPills.propTypes = {
     })
   ).isRequired,
   color: PropTypes.oneOf([
-    "primary",
-    "warning",
-    "danger",
-    "success",
-    "info",
-    "rose"
+    'primary',
+    'warning',
+    'danger',
+    'success',
+    'info',
+    'rose'
   ]),
   direction: PropTypes.string,
   horizontal: PropTypes.shape({
@@ -141,6 +134,6 @@ NavPills.propTypes = {
     contentGrid: PropTypes.object
   }),
   alignCenter: PropTypes.bool
-};
+}
 
-export default withStyles(navPillsStyle)(NavPills);
+export default withStyles(navPillsStyle)(NavPills)

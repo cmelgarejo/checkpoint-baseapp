@@ -1,7 +1,5 @@
 # Checkpoint Base App
 
-## Ignore updating the following packages
-
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,45 +1,8 @@
 @charset "UTF-8";
-/*! =========================================================
- *
- Material Dashboard PRO React - v1.4.0 based on Material Dashboard PRO - V1.2.1
-*
-* =========================================================
-*
-* Copyright 2016 Creative Tim (https://www.creative-tim.com/product/material-dashboard-pro-react)
- *
- *                       _oo0oo_
- *                      o8888888o
- *                      88" . "88
- *                      (| -_- |)
- *                      0\  =  /0
- *                    ___/`---'\___
- *                  .' \|     |// '.
- *                 / \|||  :  |||// \
- *                / _||||| -:- |||||- \
- *               |   | \\  -  /// |   |
- *               | \_|  ''\---/''  |_/ |
- *               \  .-\__  '-'  ___/-. /
- *             ___'. .'  /--.--\  `. .'___
- *          ."" '<  `.___\_<|>_/___.' >' "".
- *         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
- *         \  \ `_.   \_ __\ /__ _/   .-` /  /
- *     =====`-.____`.___ \_____/___.-`___.-'=====
- *                       `=---='
- *
- *     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *
- *               Buddha Bless:  "No Bugs"
- *
- * ========================================================= */
 /*! nouislider - 11.1.0 - 2018-04-02 11:18:13 */
 /* Functional styling;
 * These styles are required for noUiSlider to function.
 * You don't need to change these rules to apply your design.
-*/
-/*
-
-This file was modified by Creative-Tim
-
 */
 .noUi-target,
 .noUi-target * {
@@ -86,7 +49,7 @@ This file was modified by Creative-Tim
 
 /* Offset direction
 */
-html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
+html:not([dir='rtl']) .noUi-horizontal .noUi-origin {
   left: auto;
   right: 0; }
 
@@ -146,7 +109,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   background: #FFFFFF;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+html:not([dir='rtl']) .noUi-horizontal .noUi-handle {
   right: -4px;
   left: auto; }
 
@@ -176,9 +139,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .noUi-handle {
   border-radius: 3px;
-  background: #FFF;
+  background: #fff;
   cursor: default;
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
   -webkit-transition: 300ms ease 0s;
   -moz-transition: 300ms ease 0s;
   -ms-transition: 300ms ease 0s;
@@ -188,12 +151,12 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     outline: none; }
 
 .noUi-active {
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB; }
+  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ddd, 0 3px 6px -3px #bbb; }
 
 /* Disabled state;
 */
 [disabled] .noUi-connect {
-  background: #B8B8B8; }
+  background: #b8b8b8; }
 
 [disabled].noUi-target,
 [disabled].noUi-handle,
@@ -229,13 +192,13 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 */
 .noUi-marker {
   position: absolute;
-  background: #CCC; }
+  background: #ccc; }
 
 .noUi-marker-sub {
-  background: #AAA; }
+  background: #aaa; }
 
 .noUi-marker-large {
-  background: #AAA; }
+  background: #aaa; }
 
 /* Horizontal layout;
 *
@@ -298,7 +261,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .noUi-tooltip {
   display: block;
   position: absolute;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 3px;
   background: #fff;
   color: #000;
@@ -1557,7 +1520,9 @@ button.rbc-input::-moz-focus-inner {
   padding: 5px 10px;
   z-index: 1040; }
 
-.jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {
+.jvectormap-zoomin,
+.jvectormap-zoomout,
+.jvectormap-goback {
   position: absolute;
   left: 10px;
   border-radius: 3px;
@@ -1569,7 +1534,8 @@ button.rbc-input::-moz-focus-inner {
   text-align: center;
   box-sizing: content-box; }
 
-.jvectormap-zoomin, .jvectormap-zoomout {
+.jvectormap-zoomin,
+.jvectormap-zoomout {
   width: 10px;
   height: 10px; }
 

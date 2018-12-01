@@ -10,7 +10,7 @@ import ListItem from '@material-ui/core/ListItem'
 import footerStyle from 'assets/jss/material-dashboard-pro-react/components/footerStyle'
 
 function Footer({ ...props }) {
-  const { classes, fluid, white, rtlActive } = props
+  const { classes, fluid, white } = props
   var container = cx({
     [classes.container]: !fluid,
     [classes.containerFluid]: fluid,
@@ -31,23 +31,18 @@ function Footer({ ...props }) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a href="#home" className={block}>
-                {rtlActive ? 'الصفحة الرئيسية' : 'Carajo'}
+              <a href="/" className={block}>
+                Home
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={block}>
-                {rtlActive ? 'شركة' : 'Company'}
+              <a href="https://www.centralgps.net" className={block}>
+                Company
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={block}>
-                {rtlActive ? 'بعدسة' : 'Portfolio'}
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={block}>
-                {rtlActive ? 'مدونة' : 'Blog'}
+              <a href="https://www.centralgps.net/blog" className={block}>
+                Blog
               </a>
             </ListItem>
           </List>
@@ -55,11 +50,8 @@ function Footer({ ...props }) {
         <p className={classes.right}>
           &copy; {1900 + new Date().getYear()}{' '}
           <a href="https://www.centralgps.net" className={anchor}>
-            {rtlActive ? 'توقيت الإبداعية' : 'CentralGPS'}
+            CentralGPS
           </a>
-          {rtlActive
-            ? ', مصنوعة مع الحب لشبكة الإنترنت أفضل'
-            : ', made with love for a better web'}
         </p>
       </div>
     </footer>
@@ -69,8 +61,7 @@ function Footer({ ...props }) {
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
   fluid: PropTypes.bool,
-  white: PropTypes.bool,
-  rtlActive: PropTypes.bool
+  white: PropTypes.bool
 }
 
 export default withStyles(footerStyle)(Footer)
