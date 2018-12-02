@@ -47,18 +47,10 @@ class LoginPage extends React.Component {
     this.timeOutFunction = null
   }
   render() {
-    const { classes } = this.props
-    const { t, i18n } = this.props
-
-    const changeLanguage = lng => {
-      i18n.changeLanguage(lng)
-    }
+    const { classes, t } = this.props
 
     return (
       <div className={classes.container}>
-        <button onClick={() => changeLanguage('es')}>es</button>
-        <button onClick={() => changeLanguage('en')}>en</button>
-
         <GridContainer justify="center">
           <GridItem xs={12} sm={6} md={4}>
             <form>

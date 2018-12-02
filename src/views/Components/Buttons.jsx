@@ -1,31 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles from '@material-ui/core/styles/withStyles'
 
 // @material-ui/icons
-import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
-import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import PriorityHigh from "@material-ui/icons/PriorityHigh";
-import Check from "@material-ui/icons/Check";
-import Warning from "@material-ui/icons/Warning";
-import Close from "@material-ui/icons/Close";
-import Favorite from "@material-ui/icons/Favorite";
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
+import PriorityHigh from '@material-ui/icons/PriorityHigh'
+import Check from '@material-ui/icons/Check'
+import Warning from '@material-ui/icons/Warning'
+import Close from '@material-ui/icons/Close'
+import Favorite from '@material-ui/icons/Favorite'
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Pagination from "components/Pagination/Pagination.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Pagination from 'components/Pagination/Pagination.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
 
-import buttonsStyle from "assets/jss/material-dashboard-pro-react/views/buttonsStyle.jsx";
+import buttonsStyle from 'assets/jss/material-dashboard-pro-react/views/buttonsStyle.jsx'
 
 class Buttons extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     return (
       <Card>
         <CardBody>
@@ -144,25 +144,25 @@ class Buttons extends React.Component {
                 <Pagination
                   pages={[
                     { text: 1 },
-                    { text: "..." },
+                    { text: '...' },
                     { text: 5 },
                     { text: 6 },
                     { active: true, text: 7 },
                     { text: 8 },
                     { text: 9 },
-                    { text: "..." },
+                    { text: '...' },
                     { text: 12 }
                   ]}
                 />
                 <Pagination
                   pages={[
-                    { text: "PREV" },
+                    { text: 'PREV' },
                     { text: 1 },
                     { text: 2 },
                     { active: true, text: 3 },
                     { text: 4 },
                     { text: 5 },
-                    { text: "NEXT" }
+                    { text: 'NEXT' }
                   ]}
                   color="info"
                 />
@@ -227,24 +227,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-twitter"
+                          ' fab fa-twitter'
                         }
-                      />{" "}
+                      />{' '}
                       Connect with Twitter
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="twitter">
-                      <i className={"fab fa-twitter"} />
+                      <i className={'fab fa-twitter'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="twitter">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-twitter"
+                          classes.socialButtonsIcons + ' fab fa-twitter'
                         }
                       />
                     </Button>
@@ -254,9 +254,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-twitter"
+                          ' fab fa-twitter'
                         }
                       />
                     </Button>
@@ -266,11 +266,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-twitter"
+                          ' fab fa-twitter'
                         }
-                      />{" "}
+                      />{' '}
                       Connect with Twitter
                     </Button>
                   </GridItem>
@@ -281,24 +281,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-facebook-square"
+                          ' fab fa-facebook-square'
                         }
-                      />{" "}
+                      />{' '}
                       Share · 2.2k
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="facebook">
-                      <i className={"fab fa-facebook"} />
+                      <i className={'fab fa-facebook'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="facebook">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-facebook"
+                          classes.socialButtonsIcons + ' fab fa-facebook'
                         }
                       />
                     </Button>
@@ -308,9 +308,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-facebook-square"
+                          ' fab fa-facebook-square'
                         }
                       />
                     </Button>
@@ -320,11 +320,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-facebook-square"
+                          ' fab fa-facebook-square'
                         }
-                      />{" "}
+                      />{' '}
                       Share · 2.2k
                     </Button>
                   </GridItem>
@@ -335,24 +335,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-google-plus-g"
+                          ' fab fa-google-plus-g'
                         }
-                      />{" "}
+                      />{' '}
                       Share on Google+
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="google">
-                      <i className={"fab fa-google"} />
+                      <i className={'fab fa-google'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="google">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-google"
+                          classes.socialButtonsIcons + ' fab fa-google'
                         }
                       />
                     </Button>
@@ -362,9 +362,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-google"
+                          ' fab fa-google'
                         }
                       />
                     </Button>
@@ -374,11 +374,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-google-plus-g"
+                          ' fab fa-google-plus-g'
                         }
-                      />{" "}
+                      />{' '}
                       Share on Google+
                     </Button>
                   </GridItem>
@@ -389,24 +389,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-linkedin"
+                          ' fab fa-linkedin'
                         }
-                      />{" "}
+                      />{' '}
                       Connect with Linkedin
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="linkedin">
-                      <i className={"fab fa-linkedin"} />
+                      <i className={'fab fa-linkedin'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="linkedin">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-linkedin"
+                          classes.socialButtonsIcons + ' fab fa-linkedin'
                         }
                       />
                     </Button>
@@ -416,9 +416,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-linkedin"
+                          ' fab fa-linkedin'
                         }
                       />
                     </Button>
@@ -428,11 +428,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-linkedin"
+                          ' fab fa-linkedin'
                         }
-                      />{" "}
+                      />{' '}
                       Connect with Linkedin
                     </Button>
                   </GridItem>
@@ -443,24 +443,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-pinterest"
+                          ' fab fa-pinterest'
                         }
-                      />{" "}
+                      />{' '}
                       Pint it · 212
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="pinterest">
-                      <i className={"fab fa-pinterest"} />
+                      <i className={'fab fa-pinterest'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="pinterest">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-pinterest"
+                          classes.socialButtonsIcons + ' fab fa-pinterest'
                         }
                       />
                     </Button>
@@ -470,9 +470,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-pinterest"
+                          ' fab fa-pinterest'
                         }
                       />
                     </Button>
@@ -482,11 +482,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-pinterest"
+                          ' fab fa-pinterest'
                         }
-                      />{" "}
+                      />{' '}
                       Pint it · 212
                     </Button>
                   </GridItem>
@@ -497,24 +497,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-youtube"
+                          ' fab fa-youtube'
                         }
-                      />{" "}
+                      />{' '}
                       View on Youtube
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="youtube">
-                      <i className={"fab fa-youtube-square"} />
+                      <i className={'fab fa-youtube-square'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="youtube">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-youtube-square"
+                          classes.socialButtonsIcons + ' fab fa-youtube-square'
                         }
                       />
                     </Button>
@@ -524,9 +524,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-youtube-square"
+                          ' fab fa-youtube-square'
                         }
                       />
                     </Button>
@@ -536,11 +536,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-youtube"
+                          ' fab fa-youtube'
                         }
-                      />{" "}
+                      />{' '}
                       View on Youtube
                     </Button>
                   </GridItem>
@@ -551,24 +551,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-tumblr-square"
+                          ' fab fa-tumblr-square'
                         }
-                      />{" "}
+                      />{' '}
                       Repost
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="tumblr">
-                      <i className={"fab fa-tumblr-square"} />
+                      <i className={'fab fa-tumblr-square'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="tumblr">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-tumblr-square"
+                          classes.socialButtonsIcons + ' fab fa-tumblr-square'
                         }
                       />
                     </Button>
@@ -578,9 +578,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-tumblr-square"
+                          ' fab fa-tumblr-square'
                         }
                       />
                     </Button>
@@ -590,11 +590,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-tumblr-square"
+                          ' fab fa-tumblr-square'
                         }
-                      />{" "}
+                      />{' '}
                       Repost
                     </Button>
                   </GridItem>
@@ -605,24 +605,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-github"
+                          ' fab fa-github'
                         }
-                      />{" "}
+                      />{' '}
                       Connect with Github
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="github">
-                      <i className={"fab fa-github"} />
+                      <i className={'fab fa-github'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="github">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-github"
+                          classes.socialButtonsIcons + ' fab fa-github'
                         }
                       />
                     </Button>
@@ -632,9 +632,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-github"
+                          ' fab fa-github'
                         }
                       />
                     </Button>
@@ -644,11 +644,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-github"
+                          ' fab fa-github'
                         }
-                      />{" "}
+                      />{' '}
                       Connect with Github
                     </Button>
                   </GridItem>
@@ -659,24 +659,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-behance-square"
+                          ' fab fa-behance-square'
                         }
-                      />{" "}
+                      />{' '}
                       Follow us
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="behance">
-                      <i className={"fab fa-behance"} />
+                      <i className={'fab fa-behance'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="behance">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-behance-square"
+                          classes.socialButtonsIcons + ' fab fa-behance-square'
                         }
                       />
                     </Button>
@@ -686,9 +686,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-behance"
+                          ' fab fa-behance'
                         }
                       />
                     </Button>
@@ -698,11 +698,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-behance-square"
+                          ' fab fa-behance-square'
                         }
-                      />{" "}
+                      />{' '}
                       Follow us
                     </Button>
                   </GridItem>
@@ -713,24 +713,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-dribbble"
+                          ' fab fa-dribbble'
                         }
-                      />{" "}
+                      />{' '}
                       Find us on Dribble
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="dribbble">
-                      <i className={"fab fa-dribbble"} />
+                      <i className={'fab fa-dribbble'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="dribbble">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-dribbble"
+                          classes.socialButtonsIcons + ' fab fa-dribbble'
                         }
                       />
                     </Button>
@@ -740,9 +740,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-dribbble"
+                          ' fab fa-dribbble'
                         }
                       />
                     </Button>
@@ -752,11 +752,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-dribbble"
+                          ' fab fa-dribbble'
                         }
-                      />{" "}
+                      />{' '}
                       Find us on Dribble
                     </Button>
                   </GridItem>
@@ -767,24 +767,24 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-reddit"
+                          ' fab fa-reddit'
                         }
-                      />{" "}
+                      />{' '}
                       Repost · 232
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon color="reddit">
-                      <i className={"fab fa-reddit"} />
+                      <i className={'fab fa-reddit'} />
                     </Button>
                   </GridItem>
                   <GridItem xs={12} sm={1} md={1}>
                     <Button justIcon round color="reddit">
                       <i
                         className={
-                          classes.socialButtonsIcons + " fab fa-reddit"
+                          classes.socialButtonsIcons + ' fab fa-reddit'
                         }
                       />
                     </Button>
@@ -794,9 +794,9 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-reddit"
+                          ' fab fa-reddit'
                         }
                       />
                     </Button>
@@ -806,11 +806,11 @@ class Buttons extends React.Component {
                       <i
                         className={
                           classes.socialButtonsIcons +
-                          " " +
+                          ' ' +
                           classes.marginRight +
-                          " fab fa-reddit"
+                          ' fab fa-reddit'
                         }
-                      />{" "}
+                      />{' '}
                       Repost · 232
                     </Button>
                   </GridItem>
@@ -820,12 +820,12 @@ class Buttons extends React.Component {
           </GridContainer>
         </CardBody>
       </Card>
-    );
+    )
   }
 }
 
 Buttons.propTypes = {
   classes: PropTypes.object.isRequired
-};
+}
 
-export default withStyles(buttonsStyle)(Buttons);
+export default withStyles(buttonsStyle)(Buttons)
