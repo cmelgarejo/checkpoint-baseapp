@@ -57,10 +57,10 @@ class LoginPage extends React.Component {
               <Card login className={classes[this.state.cardAnimaton]}>
                 <CardHeader
                   className={`${classes.cardHeader} ${classes.textCenter}`}
-                  color="rose"
+                  color="primary"
                 >
                   <h4 className={classes.cardTitle}>{t('login')}</h4>
-                  <div className={classes.socialLine}>
+                  {/* <div className={classes.socialLine}>
                     {[
                       'fab fa-facebook-square',
                       'fab fa-twitter',
@@ -77,11 +77,11 @@ class LoginPage extends React.Component {
                         </Button>
                       )
                     })}
-                  </div>
+                  </div> */}
                 </CardHeader>
                 <CardBody>
                   <CustomInput
-                    labelText="Email"
+                    labelText={t('email')}
                     id="email"
                     formControlProps={{
                       fullWidth: true
@@ -95,7 +95,7 @@ class LoginPage extends React.Component {
                     }}
                   />
                   <CustomInput
-                    labelText="Password"
+                    labelText={t('password')}
                     id="password"
                     formControlProps={{
                       fullWidth: true
@@ -112,8 +112,8 @@ class LoginPage extends React.Component {
                   />
                 </CardBody>
                 <CardFooter className={classes.justifyContentCenter}>
-                  <Button color="rose" simple size="lg" block>
-                    Let's Go
+                  <Button color="primary" simple size="lg" block>
+                    {t('signin')}
                   </Button>
                 </CardFooter>
               </Card>

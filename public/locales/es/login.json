@@ -1,3 +1,6 @@
 {
-  "login": "Ingreso al sistema"
+  "login": "Ingreso al sistema",
+  "signin": "Ingresar",
+  "email": "Email",
+  "password": "Contraseña"
 }

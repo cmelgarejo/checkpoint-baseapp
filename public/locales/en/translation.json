@@ -1,3 +1,5 @@
 {
-  "appName": "Checkpoint"
+  "appName": "Checkpoint",
+  "Dashboard": "Dashboard",
+  "Login": "Sign In"
 }

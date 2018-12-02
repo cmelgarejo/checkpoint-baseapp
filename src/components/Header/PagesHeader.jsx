@@ -63,7 +63,7 @@ class PagesHeader extends React.Component {
               <Dashboard />
             </ListItemIcon>
             <ListItemText
-              primary={'Dashboard'}
+              primary={t('Dashboard')}
               disableTypography={true}
               className={classes.listItemText}
             />
@@ -85,7 +85,7 @@ class PagesHeader extends React.Component {
                   <prop.icon />
                 </ListItemIcon>
                 <ListItemText
-                  primary={prop.short}
+                  primary={t(prop.short)}
                   disableTypography={true}
                   className={classes.listItemText}
                 />

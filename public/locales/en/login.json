@@ -1,3 +1,6 @@
 {
-  "login": "Log In"
+  "login": "Log In",
+  "signin": "Sign In",
+  "email": "Email",
+  "password": "Password"
 }
