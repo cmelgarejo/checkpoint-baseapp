@@ -105,6 +105,24 @@ const pagesHeaderStyle = theme => ({
       paddingRight: '15px'
     }
   },
+  navLangLink: {
+    margin: '0 5px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+    fontWeight: '500',
+    fontSize: '12px',
+    textTransform: 'uppercase',
+    borderRadius: '3px',
+    lineHeight: '10px',
+    position: 'relative',
+    display: 'block',
+    padding: '8px 15px',
+    textDecoration: 'none',
+    '&:hover,&:focus': {
+      color: '#FFFFFF',
+      background: 'rgba(200, 200, 200, 0.2)'
+    }
+  },
   navLink: {
     color: '#FFFFFF',
     margin: '0 5px',

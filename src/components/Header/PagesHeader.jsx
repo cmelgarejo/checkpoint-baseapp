@@ -14,8 +14,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
+import LanguagePicker from 'components/LanguagePicker'
 
 // @material-ui/icons
 import Dashboard from '@material-ui/icons/Dashboard'
@@ -30,18 +29,9 @@ import pagesHeaderStyle from 'assets/jss/material-dashboard-pro-react/components
 
 import logo from 'assets/img/big-logo.png'
 
-const us_flag = require('assets/img/flags/US.png')
-const es_flag = require('assets/img/flags/PY.png')
 class PagesHeader extends React.Component {
   state = {
-    open: false,
-    language: this.props.i18n.language
-  }
-
-  handleChangeLanguage = ({ target }) => {
-    const { i18n } = this.props
-    i18n.changeLanguage(target.value)
-    this.setState({ language: target.value })
+    open: false
   }
 
   handleDrawerToggle = () => {
@@ -104,40 +94,8 @@ class PagesHeader extends React.Component {
           )
         })}
         <ListItem className={classes.listItem}>
-          <NavLink to={'#'} className={classes.navLink}>
-            <Select
-              MenuProps={{
-                className: classes.selectMenu
-              }}
-              classes={{
-                select: classes.select
-              }}
-              value={this.state.language}
-              onChange={this.handleChangeLanguage}
-              inputProps={{
-                name: 'languageSelect',
-                id: 'language-select'
-              }}
-            >
-              <MenuItem
-                value="en"
-                classes={{
-                  root: classes.selectMenuItem,
-                  selected: classes.selectMenuItemSelected
-                }}
-              >
-                <img src={us_flag} alt="English" />
-              </MenuItem>
-              <MenuItem
-                value="es"
-                classes={{
-                  root: classes.selectMenuItem,
-                  selected: classes.selectMenuItemSelected
-                }}
-              >
-                <img src={es_flag} alt="Spanish" />
-              </MenuItem>
-            </Select>
+          <NavLink to={'#'} className={classes.navLangLink}>
+            <LanguagePicker />
           </NavLink>
         </ListItem>
       </List>
