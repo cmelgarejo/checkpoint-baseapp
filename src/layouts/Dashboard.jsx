@@ -44,27 +44,38 @@ class Dashboard extends React.Component {
       mobileOpen: false,
       miniActive: false
     }
+    this.mainPanel = React.createRef()
     this.resizeFunction = this.resizeFunction.bind(this)
   }
   componentDidMount() {
     if (navigator.platform.indexOf('Win') > -1) {
-      ps = new PerfectScrollbar(this.refs.mainPanel, {
-        suppressScrollX: true,
-        suppressScrollY: false
-      })
-      document.body.style.overflow = 'hidden'
+      const psContainer = document.querySelector('#mainDashboardPanel')
+      if (psContainer) {
+        ps = new PerfectScrollbar(psContainer, {
+          suppressScrollX: true,
+          suppressScrollY: false
+        })
+        document.body.style.overflow = 'hidden'
+      }
     }
     window.addEventListener('resize', this.resizeFunction)
   }
   componentWillUnmount() {
     if (navigator.platform.indexOf('Win') > -1) {
-      ps.destroy()
+      ps && ps.destroy()
+      ps = null
     }
     window.removeEventListener('resize', this.resizeFunction)
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
-      this.refs.mainPanel.scrollTop = 0
+      if (navigator.platform.indexOf('Win') > -1) {
+        ps = new PerfectScrollbar(this.mainPanel.current, {
+          suppressScrollX: true,
+          suppressScrollY: false
+        })
+      }
+      this.mainPanel.current.scrollTop = 0
       if (this.state.mobileOpen) {
         this.setState({ mobileOpen: false })
       }
@@ -85,7 +96,11 @@ class Dashboard extends React.Component {
     }
   }
   render() {
-    const { classes, ...rest } = this.props
+    const { classes, userInfo, isLoading, error, ...rest } = this.props
+    console.log('user info stuff:', userInfo, isLoading, error)
+    if ((userInfo === null || isLoading) && error === null)
+      return <div>Loading...</div>
+    // if (!isLoading && error) rest.history.push('/pages/login-page')
     const mainPanel =
       classes.mainPanel +
       ' ' +
@@ -108,7 +123,7 @@ class Dashboard extends React.Component {
           miniActive={this.state.miniActive}
           {...rest}
         />
-        <div className={mainPanel} ref="mainPanel">
+        <div className={mainPanel} ref={this.mainPanel} id="mainDashboardPanel">
           <Header
             sidebarMinimize={this.sidebarMinimize.bind(this)}
             miniActive={this.state.miniActive}
