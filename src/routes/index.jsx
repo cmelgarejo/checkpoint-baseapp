@@ -4,8 +4,8 @@ import Loader from 'components/Loader'
 
 const Loading = props => <Loader loaderProps={props} />
 
-const LoadableDashboard = Loadable({
-  loader: () => import('layouts/SecuredDashboard.jsx'),
+const LoadableApp = Loadable({
+  loader: () => import('layouts/App.jsx'),
   loading: Loading,
   delay: 300
 })
@@ -17,8 +17,8 @@ const LoadablePages = Loadable({
 })
 
 var indexRoutes = [
-  { path: '/pages', name: 'Pages', component: LoadablePages },
-  { path: '/', name: 'Home', component: LoadableDashboard }
+  { path: '/app', name: 'App', component: LoadableApp },
+  { path: '/', name: 'Home', component: LoadablePages }
 ]
 
 export default indexRoutes

@@ -9,7 +9,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import PagesHeader from 'components/Header/PagesHeader.jsx'
 import Footer from 'components/Footer/Footer.jsx'
 
-import pagesRoutes from 'routes/pages.jsx'
+import homeRoutes from 'routes/home.jsx'
 
 import pagesStyle from 'assets/jss/material-dashboard-pro-react/layouts/pagesStyle.jsx'
 
@@ -30,7 +30,7 @@ class Pages extends React.Component {
             style={{ backgroundImage: 'url(' + bgImage + ')' }}
           >
             <Switch>
-              {pagesRoutes.map((prop, key) => {
+              {homeRoutes.map((prop, key) => {
                 if (prop.collapse) {
                   return null
                 }

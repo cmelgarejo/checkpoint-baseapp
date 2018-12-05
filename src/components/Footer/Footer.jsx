@@ -36,12 +36,12 @@ function Footer({ ...props }) {
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="https://www.centralgps.net" className={block}>
+              <a href={`${process.env.COMPANY_SITE}`} className={block}>
                 Company
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="https://www.centralgps.net/blog" className={block}>
+              <a href={`${process.env.COMPANY_SITE}/blog`} className={block}>
                 Blog
               </a>
             </ListItem>
@@ -49,7 +49,7 @@ function Footer({ ...props }) {
         </div>
         <p className={classes.right}>
           &copy; {1900 + new Date().getYear()}{' '}
-          <a href="https://www.centralgps.net" className={anchor}>
+          <a href={`${process.env.COMPANY_SITE}`} className={anchor}>
             CentralGPS
           </a>
         </p>

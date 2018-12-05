@@ -14,7 +14,7 @@ import Header from 'components/Header/Header.jsx'
 import Footer from 'components/Footer/Footer.jsx'
 import Sidebar from 'components/Sidebar/Sidebar.jsx'
 
-import dashboardRoutes from 'routes/dashboard.jsx'
+import appRoutes from 'routes/app.jsx'
 
 import appStyle from 'assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx'
 
@@ -23,7 +23,7 @@ import logo from 'assets/img/big-logo.png'
 
 const switchRoutes = (
   <Switch>
-    {dashboardRoutes.map((prop, key) => {
+    {appRoutes.map((prop, key) => {
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.pathTo} key={key} />
       if (prop.collapse)
@@ -112,7 +112,7 @@ class Dashboard extends React.Component {
     return (
       <div className={classes.wrapper}>
         <Sidebar
-          routes={dashboardRoutes}
+          routes={appRoutes}
           logoText={'Checkpoint'}
           logo={logo}
           image={image}
@@ -127,7 +127,7 @@ class Dashboard extends React.Component {
           <Header
             sidebarMinimize={this.sidebarMinimize.bind(this)}
             miniActive={this.state.miniActive}
-            routes={dashboardRoutes}
+            routes={appRoutes}
             handleDrawerToggle={this.handleDrawerToggle}
             {...rest}
           />

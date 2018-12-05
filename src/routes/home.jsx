@@ -19,13 +19,13 @@ const pagesRoutes = [
   //   component: RegisterPage
   // },
   {
-    path: '/pages/login-page',
+    path: '/login',
     name: 'Login Page',
     short: 'Login',
     mini: 'LP',
     icon: Fingerprint,
     component: LoginPage
-  }
+  },
   // {
   //   path: '/pages/pricing-page',
   //   name: 'Pricing Page',
@@ -42,12 +42,12 @@ const pagesRoutes = [
   //   icon: LockOpen,
   //   component: LockScreenPage
   // }
-  // {
-  //   redirect: true,
-  //   path: '/pages',
-  //   pathTo: '/pages/register-page',
-  //   name: 'Register Page'
-  // }
+  {
+    redirect: true,
+    path: '/',
+    pathTo: '/login',
+    name: 'Login'
+  }
 ]
 
 export default pagesRoutes

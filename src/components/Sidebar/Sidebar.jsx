@@ -335,10 +335,10 @@ class Sidebar extends React.Component {
       })
     var brand = (
       <div className={logoClasses}>
-        <a href="https://www.centralgps.net" className={logoMini}>
+        <a href={`${process.env.COMPANY_SITE}`} className={logoMini}>
           <img src={logo} alt="logo" className={classes.img} />
         </a>
-        <a href="https://www.centralgps.net" className={logoNormal}>
+        <a href={`${process.env.COMPANY_SITE}`} className={logoNormal}>
           {logoText}
         </a>
       </div>

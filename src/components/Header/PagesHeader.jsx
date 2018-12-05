@@ -23,7 +23,7 @@ import Menu from '@material-ui/icons/Menu'
 // core components
 import Button from 'components/CustomButtons/Button'
 
-import pagesRoutes from 'routes/pages.jsx'
+import homeRoutes from 'routes/home.jsx'
 
 import pagesHeaderStyle from 'assets/jss/material-dashboard-pro-react/components/pagesHeaderStyle.jsx'
 
@@ -58,7 +58,7 @@ class PagesHeader extends React.Component {
     var list = (
       <List className={classes.list}>
         <ListItem className={classes.listItem}>
-          <NavLink to={'/dashboard'} className={classes.navLink}>
+          <NavLink to={'/app'} className={classes.navLink}>
             <ListItemIcon className={classes.listItemIcon}>
               <Dashboard />
             </ListItemIcon>
@@ -69,7 +69,7 @@ class PagesHeader extends React.Component {
             />
           </NavLink>
         </ListItem>
-        {pagesRoutes.map((prop, key) => {
+        {homeRoutes.map((prop, key) => {
           if (prop.redirect) {
             return null
           }
