@@ -21,9 +21,16 @@ import appStyle from 'assets/jss/material-dashboard-pro-react/layouts/dashboardS
 import image from 'assets/img/sidebar.jpg'
 import logo from 'assets/img/big-logo.png'
 
-const switchRoutes = (
+const switchRoutes = roles => (
   <Switch>
     {appRoutes.map((prop, key) => {
+      if (
+        roles &&
+        roles.reduce((a, c) => prop.allow && prop.allow.includes(c), false)
+      ) {
+        console.log('poopy!', roles, prop.allow)
+        return undefined
+      }
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.pathTo} key={key} />
       if (prop.collapse)
@@ -68,7 +75,10 @@ class Dashboard extends React.Component {
     window.removeEventListener('resize', this.resizeFunction)
   }
   componentDidUpdate(e) {
-    if (e.history.location.pathname !== e.location.pathname) {
+    if (
+      this.mainPanel.current &&
+      e.history.location.pathname !== e.location.pathname
+    ) {
       if (navigator.platform.indexOf('Win') > -1) {
         ps = new PerfectScrollbar(this.mainPanel.current, {
           suppressScrollX: true,
@@ -96,11 +106,8 @@ class Dashboard extends React.Component {
     }
   }
   render() {
-    const { classes, userInfo, isLoading, error, ...rest } = this.props
-    console.log('user info stuff:', userInfo, isLoading, error)
-    if ((userInfo === null || isLoading) && error === null)
-      return <div>Loading...</div>
-    // if (!isLoading && error) rest.history.push('/pages/login-page')
+    const { classes, userInfo, ...rest } = this.props
+    console.log('Dashboard.userInfo:', userInfo)
     const mainPanel =
       classes.mainPanel +
       ' ' +
@@ -109,10 +116,20 @@ class Dashboard extends React.Component {
         [classes.mainPanelWithPerfectScrollbar]:
           navigator.platform.indexOf('Win') > -1
       })
+
+    const pooproutes = userInfo
+      ? appRoutes.reduce((acc, cur) => {
+          return cur.allow &&
+            userInfo.acl_roles.reduce((a, c) => cur.allow.includes(c), false)
+            ? [...acc, cur]
+            : acc
+        }, [])
+      : []
+    console.log('pooproutes:', pooproutes)
     return (
       <div className={classes.wrapper}>
         <Sidebar
-          routes={appRoutes}
+          routes={pooproutes}
           logoText={'Checkpoint'}
           logo={logo}
           image={image}
@@ -134,10 +151,14 @@ class Dashboard extends React.Component {
           {/* On the /maps/full-screen-maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
           {this.getRoute() ? (
             <div className={classes.content}>
-              <div className={classes.container}>{switchRoutes}</div>
+              <div className={classes.container}>
+                {switchRoutes(userInfo && userInfo.acl_roles)}
+              </div>
             </div>
           ) : (
-            <div className={classes.map}>{switchRoutes}</div>
+            <div className={classes.map}>
+              {switchRoutes(userInfo && userInfo.acl_roles)}
+            </div>
           )}
           {this.getRoute() ? <Footer fluid /> : null}
         </div>

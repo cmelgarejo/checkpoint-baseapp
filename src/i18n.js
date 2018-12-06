@@ -19,7 +19,7 @@ i18n
     // default namespace (needs no prefix on calling t)
     fallbackNS: 'translation',
     fallbackLng: 'en',
-    debug: true,
+    // debug: true,
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default
     },

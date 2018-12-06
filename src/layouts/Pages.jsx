@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import {
+  Switch,
+  Route
+  // Redirect
+} from 'react-router-dom'
+import LoginPage from 'views/Pages/LoginPage.jsx'
+import LandingPage from 'views/Pages/LandingPage.jsx'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -9,7 +15,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import PagesHeader from 'components/Header/PagesHeader.jsx'
 import Footer from 'components/Footer/Footer.jsx'
 
-import homeRoutes from 'routes/home.jsx'
+// import homeRoutes from 'routes/home.jsx'
 
 import pagesStyle from 'assets/jss/material-dashboard-pro-react/layouts/pagesStyle.jsx'
 
@@ -30,7 +36,7 @@ class Pages extends React.Component {
             style={{ backgroundImage: 'url(' + bgImage + ')' }}
           >
             <Switch>
-              {homeRoutes.map((prop, key) => {
+              {/* {homeRoutes.map((prop, key) => {
                 if (prop.collapse) {
                   return null
                 }
@@ -46,7 +52,9 @@ class Pages extends React.Component {
                     key={key}
                   />
                 )
-              })}
+              })} */}
+              <Route path="/login" component={LoginPage} />
+              <Route path="/" component={LandingPage} />
             </Switch>
             <Footer white />
           </div>

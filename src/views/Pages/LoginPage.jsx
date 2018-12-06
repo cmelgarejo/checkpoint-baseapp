@@ -1,5 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { verifyEmail, verifyLength } from 'shared/utils'
+
+import {
+  StateConsumer,
+  // setAuthLoading,
+  // setAuthUserInfo,
+  authLogin
+} from 'shared/state'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -25,27 +33,70 @@ import loginPageStyle from 'assets/jss/material-dashboard-pro-react/views/loginP
 
 import { withNamespaces } from 'react-i18next'
 
+const OK = 'success',
+  ERR = 'error'
 class LoginPage extends React.Component {
-  constructor(props) {
-    super(props)
-    // we use this to make the card to appear after the page has been rendered
-    this.state = {
-      cardAnimaton: 'cardHidden'
-    }
+  state = {
+    cardAnimaton: 'cardHidden',
+    // login form
+    loginEmail: '',
+    loginEmailState: '',
+    loginPassw: '',
+    loginPasswState: ''
   }
+
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    this.timeOutFunction = setTimeout(
-      function() {
-        this.setState({ cardAnimaton: '' })
-      }.bind(this),
-      700
-    )
+    this.timeOutFunction = setTimeout(() => {
+      this.setState({ cardAnimaton: '' })
+    }, 700)
   }
   componentWillUnmount() {
     clearTimeout(this.timeOutFunction)
     this.timeOutFunction = null
   }
+
+  handleClick = async (event, value) => {
+    // const { history } = this.props
+    const {
+      loginEmail,
+      loginPassw,
+      loginEmailState,
+      loginPasswState
+    } = this.state
+    if (loginEmailState === '') this.setState({ loginEmailState: ERR })
+    if (loginPasswState === '') this.setState({ loginPasswState: ERR })
+    if (loginEmailState === OK && loginPasswState === OK) {
+      await authLogin(loginEmail, loginPassw)
+    }
+    // if (value.auth.userInfo) {
+    //   history.push('/app') // User will be kicked to the app page
+    // }
+  }
+
+  handleChange = (event, stateName, type) => {
+    const { value } = event.target
+    this.setState({ [stateName]: value })
+    switch (type) {
+      case 'email':
+        if (verifyEmail(value)) {
+          this.setState({ [`${stateName}State`]: OK })
+        } else {
+          this.setState({ [`${stateName}State`]: ERR })
+        }
+        break
+      case 'password':
+        if (verifyLength(value, 1)) {
+          this.setState({ [`${stateName}State`]: OK })
+        } else {
+          this.setState({ [`${stateName}State`]: ERR })
+        }
+        break
+      default:
+        break
+    }
+  }
+
   render() {
     const { classes, t } = this.props
 
@@ -87,12 +138,17 @@ class LoginPage extends React.Component {
                       fullWidth: true
                     }}
                     inputProps={{
+                      type: 'email',
+                      onChange: event =>
+                        this.handleChange(event, 'loginEmail', 'email'),
                       endAdornment: (
                         <InputAdornment position="end">
                           <Email className={classes.inputAdornmentIcon} />
                         </InputAdornment>
                       )
                     }}
+                    success={this.state.loginEmailState === OK}
+                    error={this.state.loginEmailState === ERR}
                   />
                   <CustomInput
                     labelText={t('password')}
@@ -101,6 +157,9 @@ class LoginPage extends React.Component {
                       fullWidth: true
                     }}
                     inputProps={{
+                      type: 'password',
+                      onChange: event =>
+                        this.handleChange(event, 'loginPassw', 'password'),
                       endAdornment: (
                         <InputAdornment position="end">
                           <Icon className={classes.inputAdornmentIcon}>
@@ -109,12 +168,29 @@ class LoginPage extends React.Component {
                         </InputAdornment>
                       )
                     }}
+                    success={this.state.loginPasswState === OK}
+                    error={this.state.loginPasswState === ERR}
                   />
                 </CardBody>
                 <CardFooter className={classes.justifyContentCenter}>
-                  <Button color="primary" simple size="lg" block>
-                    {t('signin')}
-                  </Button>
+                  <StateConsumer name="auth">
+                    {value => {
+                      const { loading } = value
+                      console.log('auth.value:', value)
+                      return (
+                        <Button
+                          color="primary"
+                          simple
+                          size="lg"
+                          block
+                          onClick={ev => this.handleClick(ev, value)}
+                          disabled={loading}
+                        >
+                          {t('signin')}
+                        </Button>
+                      )
+                    }}
+                  </StateConsumer>
                 </CardFooter>
               </Card>
             </form>

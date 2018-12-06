@@ -7,13 +7,13 @@ const Loading = props => <Loader loaderProps={props} />
 const LoadableApp = Loadable({
   loader: () => import('layouts/App.jsx'),
   loading: Loading,
-  delay: 300
+  delay: 3000
 })
 
 const LoadablePages = Loadable({
   loader: () => import('layouts/Pages.jsx'),
   loading: Loading,
-  delay: 300
+  delay: 3000
 })
 
 var indexRoutes = [

@@ -214,6 +214,7 @@ var dashRoutes = [
     component: Charts
   },
   {
+    allow: ['user'],
     path: '/app/calendar',
     name: 'Calendar',
     icon: DateRange,

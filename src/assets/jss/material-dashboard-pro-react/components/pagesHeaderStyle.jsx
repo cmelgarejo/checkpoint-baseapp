@@ -108,7 +108,7 @@ const pagesHeaderStyle = theme => ({
   navLangLink: {
     margin: '0 5px',
     paddingTop: '10px',
-    paddingBottom: '10px',
+    paddingBottom: '8px',
     fontWeight: '500',
     fontSize: '12px',
     textTransform: 'uppercase',
@@ -146,7 +146,7 @@ const pagesHeaderStyle = theme => ({
     marginTop: '-3px',
     top: '0px',
     position: 'relative',
-    marginRight: '3px',
+    marginRight: '5px',
     width: '20px',
     height: '20px',
     verticalAlign: 'middle',

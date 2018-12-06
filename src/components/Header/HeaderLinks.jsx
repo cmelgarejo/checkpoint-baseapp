@@ -2,6 +2,9 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 // import { Manager, Target, Popper } from "react-popper";
+import { withRouter } from 'react-router-dom'
+import { jwtClearToken } from 'shared/jwt'
+import { StateConsumer } from 'shared/state'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -167,20 +170,31 @@ class HeaderLinks extends React.Component {
             )}
           </Popper>
         </div>
-        <Button
-          color="transparent"
-          aria-label="Person"
-          justIcon
-          className={classes.buttonLink}
-          muiClasses={{
-            label: ''
+        <StateConsumer name="auth">
+          {value => {
+            return (
+              <Button
+                color="transparent"
+                aria-label="Person"
+                justIcon
+                className={classes.buttonLink}
+                muiClasses={{
+                  label: ''
+                }}
+                onClick={e => {
+                  jwtClearToken(this.props.history)
+                }}
+              >
+                <Person
+                  className={classes.headerLinksSvg + ' ' + classes.links}
+                />
+                <Hidden mdUp implementation="css">
+                  <span className={classes.linkText}>{'Profile'}</span>
+                </Hidden>
+              </Button>
+            )
           }}
-        >
-          <Person className={classes.headerLinksSvg + ' ' + classes.links} />
-          <Hidden mdUp implementation="css">
-            <span className={classes.linkText}>{'Profile'}</span>
-          </Hidden>
-        </Button>
+        </StateConsumer>
       </div>
     )
   }
@@ -190,4 +204,4 @@ HeaderLinks.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(headerLinksStyle)(HeaderLinks)
+export default withRouter(withStyles(headerLinksStyle)(HeaderLinks))

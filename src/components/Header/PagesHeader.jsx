@@ -57,18 +57,6 @@ class PagesHeader extends React.Component {
 
     var list = (
       <List className={classes.list}>
-        <ListItem className={classes.listItem}>
-          <NavLink to={'/app'} className={classes.navLink}>
-            <ListItemIcon className={classes.listItemIcon}>
-              <Dashboard />
-            </ListItemIcon>
-            <ListItemText
-              primary={t('Dashboard')}
-              disableTypography={true}
-              className={classes.listItemText}
-            />
-          </NavLink>
-        </ListItem>
         {homeRoutes.map((prop, key) => {
           if (prop.redirect) {
             return null
@@ -93,6 +81,18 @@ class PagesHeader extends React.Component {
             </ListItem>
           )
         })}
+        <ListItem className={classes.listItem}>
+          <NavLink to={'/app'} className={classes.navLink}>
+            <ListItemIcon className={classes.listItemIcon}>
+              <Dashboard />
+            </ListItemIcon>
+            <ListItemText
+              primary={t('Dashboard')}
+              disableTypography={true}
+              className={classes.listItemText}
+            />
+          </NavLink>
+        </ListItem>
         <ListItem className={classes.listItem}>
           <NavLink to={'#'} className={classes.navLangLink}>
             <LanguagePicker />
