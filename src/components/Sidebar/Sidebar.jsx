@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withNamespaces } from 'react-i18next'
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from 'perfect-scrollbar'
 import { NavLink } from 'react-router-dom'
@@ -80,14 +81,17 @@ class Sidebar extends React.Component {
   }
   render() {
     const {
+      t,
       classes,
       color,
       logo,
       image,
       logoText,
       routes,
-      bgColor
+      bgColor,
+      authInfo
     } = this.props
+    const { userInfo } = authInfo
     const itemText =
       classes.itemText +
       ' ' +
@@ -123,7 +127,7 @@ class Sidebar extends React.Component {
               onClick={() => this.openCollapse('openAvatar')}
             >
               <ListItemText
-                primary={'CentralGPS TEST'}
+                primary={userInfo.name}
                 secondary={
                   <b
                     className={
@@ -140,7 +144,7 @@ class Sidebar extends React.Component {
               />
             </NavLink>
             <Collapse in={this.state.openAvatar} unmountOnExit>
-              <List className={classes.list + ' ' + classes.collapseList}>
+              <List className={`${classes.list} ${classes.collapseList}`}>
                 <ListItem className={classes.collapseItem}>
                   <NavLink
                     to="#"
@@ -148,30 +152,30 @@ class Sidebar extends React.Component {
                       classes.itemLink + ' ' + classes.userCollapseLinks
                     }
                   >
-                    <span className={collapseItemMini}>{'MP'}</span>
+                    <span className={collapseItemMini}>P</span>
                     <ListItemText
-                      primary={'My Profile'}
+                      primary={t('Profile')}
                       disableTypography={true}
                       className={collapseItemText}
                     />
                   </NavLink>
                 </ListItem>
-                <ListItem className={classes.collapseItem}>
+                {/* <ListItem className={classes.collapseItem}>
                   <NavLink
                     to="#"
                     className={
                       classes.itemLink + ' ' + classes.userCollapseLinks
                     }
                   >
-                    <span className={collapseItemMini}>{'EP'}</span>
+                    <span className={collapseItemMini}>P</span>
                     <ListItemText
                       primary={'Edit Profile'}
                       disableTypography={true}
                       className={collapseItemText}
                     />
                   </NavLink>
-                </ListItem>
-                <ListItem className={classes.collapseItem}>
+                </ListItem> */}
+                {/* <ListItem className={classes.collapseItem}>
                   <NavLink
                     to="#"
                     className={
@@ -185,7 +189,7 @@ class Sidebar extends React.Component {
                       className={collapseItemText}
                     />
                   </NavLink>
-                </ListItem>
+                </ListItem> */}
               </List>
             </Collapse>
           </ListItem>
@@ -444,4 +448,4 @@ Sidebar.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default withStyles(sidebarStyle)(Sidebar)
+export default withNamespaces('sidebar')(withStyles(sidebarStyle)(Sidebar))

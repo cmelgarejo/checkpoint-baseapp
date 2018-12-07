@@ -2,5 +2,6 @@
   "login": "Log In",
   "signin": "Sign In",
   "email": "Email",
-  "password": "Password"
+  "password": "Password",
+  "401 - Unauthorized": "Incorrect user and/or password "
 }

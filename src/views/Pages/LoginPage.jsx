@@ -13,6 +13,7 @@ import {
 import withStyles from '@material-ui/core/styles/withStyles'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
+import AddAlert from '@material-ui/icons/Warning'
 
 // @material-ui/icons
 // import Face from '@material-ui/icons/Face'
@@ -28,6 +29,7 @@ import Card from 'components/Card/Card.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
 import CardFooter from 'components/Card/CardFooter.jsx'
+import Snackbar from 'components/Snackbar/Snackbar.jsx'
 
 import loginPageStyle from 'assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx'
 
@@ -35,9 +37,19 @@ import { withNamespaces } from 'react-i18next'
 
 const OK = 'success',
   ERR = 'error'
+
+const initNotifications = {
+  open: false,
+  message: '',
+  placemenmt: 'bc',
+  color: 'danger',
+  icon: AddAlert
+}
+
 class LoginPage extends React.Component {
   state = {
     cardAnimaton: 'cardHidden',
+    notif: initNotifications,
     // login form
     loginEmail: '',
     loginEmailState: '',
@@ -56,6 +68,21 @@ class LoginPage extends React.Component {
     this.timeOutFunction = null
   }
 
+  showNotification(message) {
+    const { notif } = this.state
+    if (!notif.open) {
+      this.setState({
+        notif: { ...notif, message, open: true }
+      })
+      setTimeout(
+        function() {
+          this.setState({ notif: initNotifications })
+        }.bind(this),
+        16000
+      )
+    }
+  }
+
   handleClick = async (event, value) => {
     const { history } = this.props
     const {
@@ -68,6 +95,7 @@ class LoginPage extends React.Component {
     if (loginPasswState === '') this.setState({ loginPasswState: ERR })
     if (loginEmailState === OK && loginPasswState === OK) {
       const { res, error } = await authLogin(loginEmail, loginPassw)
+      this.showNotification(error)
       if (error) {
       }
       if (!error && res) history.push('/app')
@@ -99,7 +127,7 @@ class LoginPage extends React.Component {
 
   render() {
     const { classes, t } = this.props
-
+    const { notif } = this.state
     return (
       <div className={classes.container}>
         <GridContainer justify="center">
@@ -176,7 +204,6 @@ class LoginPage extends React.Component {
                   <StateConsumer name="auth">
                     {value => {
                       const { loading } = value
-                      console.log('auth.value:', value)
                       return (
                         <Button
                           color="primary"
@@ -196,6 +223,17 @@ class LoginPage extends React.Component {
             </form>
           </GridItem>
         </GridContainer>
+        <Snackbar
+          place={notif.placemenmt}
+          color={notif.color}
+          icon={notif.icon}
+          message={t(notif.message)}
+          open={notif.open}
+          closeNotification={() =>
+            this.setState({ notif: { ...notif, open: false } })
+          }
+          close
+        />
       </div>
     )
   }

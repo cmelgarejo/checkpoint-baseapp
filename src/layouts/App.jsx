@@ -1,7 +1,6 @@
 import React from 'react'
 import Dashboard from 'layouts/Dashboard.jsx'
-import { StateConsumer, authCheckMe } from 'shared/state'
-import Loader from 'components/Loader'
+import { StateConsumer, authCheckMe, getAuthState } from 'shared/state'
 
 export default class SecuredApp extends React.Component {
   errorChecking = error => {
@@ -25,21 +24,15 @@ export default class SecuredApp extends React.Component {
     const { error } = await authCheckMe()
     this.errorChecking(error)
   }
-
+  componentWillMount() {
+    const { loading, userInfo, error } = getAuthState()
+    this.errorChecking(error)
+    if (!userInfo && !loading && !error) this.authChecking()
+  }
   render() {
-    const { authChecking, errorChecking } = this
     return (
       <StateConsumer name="auth">
-        {value => {
-          const { loading, userInfo, error } = value
-          if (loading) return <Loader loaderProps={{ error }} />
-          errorChecking(error)
-          console.log(userInfo, loading, error)
-          if (!userInfo && !loading && !error) {
-            authChecking()
-          }
-          return <Dashboard {...this.props} {...value} />
-        }}
+        {value => <Dashboard {...this.props} authInfo={value} />}
       </StateConsumer>
     )
   }

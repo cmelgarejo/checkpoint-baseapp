@@ -15,6 +15,7 @@ const baseReqOptions = (options = {}) => ({
 
 const user = {
   login: async (username, password) => {
+    let login = { res: true, error: null }
     const auth = Buffer.from(`${username}:${password}`, 'utf8').toString(
       'base64'
     )
@@ -25,16 +26,17 @@ const user = {
           Authorization: `Basic ${auth}`
         }
       })
-      if (res.status === 201) {
+      if (res.status !== 201)
+        login = { res: false, error: `${res.status} - ${res.statusText}` }
+      else {
         const jwtData = await res.json()
         jwtSetToken(jwtData.token)
-        return { res: true, error: null }
       }
-      return { res: false, error: res.status } //`${res.status}: ${res.statusText}` }
     } catch (error) {
-      console.log('error:', error)
-      return { res: false, error: error }
+      login = { res: false, error: error }
+      console.error('RESTClient.user.login:', login)
     }
+    return login
   },
   check: async () => {
     try {

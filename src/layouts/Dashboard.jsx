@@ -13,6 +13,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Header from 'components/Header/Header.jsx'
 import Footer from 'components/Footer/Footer.jsx'
 import Sidebar from 'components/Sidebar/Sidebar.jsx'
+import Loader from 'components/Loader'
 
 import appRoutes from 'routes/app.jsx'
 
@@ -106,7 +107,9 @@ class Dashboard extends React.Component {
     }
   }
   render() {
-    const { classes, userInfo, ...rest } = this.props
+    const { classes, authInfo, ...rest } = this.props
+    const { loading, userInfo, error } = authInfo
+    if (loading) return <Loader loaderProps={{ error }} />
     const mainPanel =
       classes.mainPanel +
       ' ' +
@@ -127,6 +130,7 @@ class Dashboard extends React.Component {
     return (
       <div className={classes.wrapper}>
         <Sidebar
+          authInfo={authInfo}
           routes={filteredRoutes}
           logoText={'Checkpoint'}
           logo={logo}

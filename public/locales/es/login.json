@@ -2,5 +2,6 @@
   "login": "Ingreso al sistema",
   "signin": "Ingresar",
   "email": "Email",
-  "password": "Contraseña"
+  "password": "Contraseña",
+  "401 - Unauthorized": "Usuario y/o Contraseña incorrecto(s)"
 }

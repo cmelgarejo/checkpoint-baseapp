@@ -17,7 +17,6 @@ const hist = createBrowserHistory()
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true // TODO: Fix for Typography v2
 
 ReactDOM.render(
-  // <AuthProvider authUrl={authUrl} reqOptions={reqOptions}>
   <StateProvider>
     <I18nextProvider i18n={i18n}>
       <Router history={hist}>
@@ -31,6 +30,5 @@ ReactDOM.render(
       </Router>
     </I18nextProvider>
   </StateProvider>,
-  // </AuthProvider>,
   document.getElementById('root')
 )

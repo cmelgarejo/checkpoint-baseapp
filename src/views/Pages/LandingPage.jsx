@@ -20,6 +20,7 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import landingPageStyle from 'assets/jss/material-dashboard-pro-react/views/landingPageStyle.jsx'
 
 import logo from 'assets/img/big-logo.png'
+import { Button } from '@material-ui/core'
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class LandingPage extends React.Component {
     clearTimeout(this.timeOutFunction)
     this.timeOutFunction = null
   }
+  handleClick() {}
   render() {
     const { classes, t } = this.props
 
@@ -55,11 +57,16 @@ class LandingPage extends React.Component {
               </a>
             </GridItem>
             <GridItem xs={12} className={classes.textCenter}>
-              <h2>
+              <h3>
                 {t('heroTitle')}
                 <br />
                 <small>{t('tagLine')}</small>
-              </h2>
+              </h3>
+            </GridItem>
+            <GridItem xs={12} className={classes.textCenter}>
+              <Button color="white" onClick={this.handleClick()}>
+                {t('Start')}
+              </Button>
             </GridItem>
           </GridContainer>
         </div>

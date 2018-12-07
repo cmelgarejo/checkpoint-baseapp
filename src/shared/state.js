@@ -47,9 +47,9 @@ export const authLogin = async (user, pass) => {
 
 export const authCheckMe = async () => {
   setAuthLoading(true)
-  setAuthError(null)
+  // setAuthError(null)
   const { res, error } = await RESTClient.user.check()
-  if (error) setAuthError(error)
+  // if (error) setAuthError(error)
 
   if (res && !error) {
     setAuthUserInfo(res)

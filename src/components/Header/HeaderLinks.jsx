@@ -1,29 +1,30 @@
 import React from 'react'
-import classNames from 'classnames'
 import PropTypes from 'prop-types'
+// import classNames from 'classnames'
 // import { Manager, Target, Popper } from "react-popper";
 import { withRouter } from 'react-router-dom'
+import { withNamespaces } from 'react-i18next'
 import { jwtClearToken } from 'shared/jwt'
 import { resetAuthState } from 'shared/state'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import MenuItem from '@material-ui/core/MenuItem'
-import MenuList from '@material-ui/core/MenuList'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import Paper from '@material-ui/core/Paper'
-import Grow from '@material-ui/core/Grow'
+// import MenuItem from '@material-ui/core/MenuItem'
+// import MenuList from '@material-ui/core/MenuList'
+// import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+// import Paper from '@material-ui/core/Paper'
+// import Grow from '@material-ui/core/Grow'
+// import Popper from '@material-ui/core/Popper'
 import Hidden from '@material-ui/core/Hidden'
-import Popper from '@material-ui/core/Popper'
 
 // @material-ui/icons
-import Person from '@material-ui/icons/Person'
-import Notifications from '@material-ui/icons/Notifications'
+// import Notifications from '@material-ui/icons/Notifications'
+// import Search from '@material-ui/icons/Search'
+import ExitToApp from '@material-ui/icons/ExitToApp'
 import Dashboard from '@material-ui/icons/Dashboard'
-import Search from '@material-ui/icons/Search'
 
 // core components
-import CustomInput from 'components/CustomInput/CustomInput.jsx'
+// import CustomInput from 'components/CustomInput/CustomInput.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 
 import headerLinksStyle from 'assets/jss/material-dashboard-pro-react/components/headerLinksStyle'
@@ -39,18 +40,18 @@ class HeaderLinks extends React.Component {
     this.setState({ open: false })
   }
   render() {
-    const { classes } = this.props
-    const { open } = this.state
-    const searchButton = classes.top + ' ' + classes.searchButton
-    const dropdownItem = classNames(classes.dropdownItem, classes.primaryHover)
-    const managerClasses = classNames({
-      [classes.managerClasses]: true
-    })
+    const { classes, t } = this.props
+    // const { open } = this.state
+    // const searchButton = `${classes.top} ${classes.searchButton}`
+    // const dropdownItem = classNames(classes.dropdownItem, classes.primaryHover)
+    // const managerClasses = classNames({
+    //   [classes.managerClasses]: true
+    // })
     return (
       <div>
-        <CustomInput
+        {/* <CustomInput
           formControlProps={{
-            className: classes.top + ' ' + classes.search
+            className: `${classes.top} ${classes.search}`
           }}
           inputProps={{
             placeholder: 'Search',
@@ -70,11 +71,11 @@ class HeaderLinks extends React.Component {
           <Search
             className={classes.headerLinksSvg + ' ' + classes.searchIcon}
           />
-        </Button>
+        </Button> */}
         <Button
           color="transparent"
           simple
-          aria-label="Dashboard"
+          aria-label={t('Dashboard')}
           justIcon
           className={classes.buttonLink}
           muiClasses={{
@@ -83,10 +84,10 @@ class HeaderLinks extends React.Component {
         >
           <Dashboard className={classes.headerLinksSvg + ' ' + classes.links} />
           <Hidden mdUp implementation="css">
-            <span className={classes.linkText}>{'Dashboard'}</span>
+            <span className={classes.linkText}>{t('Dashboard')}</span>
           </Hidden>
         </Button>
-        <div className={managerClasses}>
+        {/* <div className={managerClasses}>
           <Button
             color="transparent"
             justIcon
@@ -169,23 +170,23 @@ class HeaderLinks extends React.Component {
               </Grow>
             )}
           </Popper>
-        </div>
+        </div> */}
         <Button
           color="transparent"
-          aria-label="Person"
+          aria-label={t('Logout')}
           justIcon
           className={classes.buttonLink}
           muiClasses={{
-            label: ''
+            label: t('Logout')
           }}
           onClick={e => {
             resetAuthState()
             jwtClearToken(this.props.history)
           }}
         >
-          <Person className={classes.headerLinksSvg + ' ' + classes.links} />
+          <ExitToApp className={classes.headerLinksSvg + ' ' + classes.links} />
           <Hidden mdUp implementation="css">
-            <span className={classes.linkText}>{'Profile'}</span>
+            <span className={classes.linkText}>{t('Logout')}</span>
           </Hidden>
         </Button>
       </div>
@@ -197,4 +198,6 @@ HeaderLinks.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withRouter(withStyles(headerLinksStyle)(HeaderLinks))
+export default withNamespaces('header-links')(
+  withRouter(withStyles(headerLinksStyle)(HeaderLinks))
+)

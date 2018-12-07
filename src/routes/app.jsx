@@ -21,6 +21,7 @@ import Calendar from 'views/Calendar/Calendar.jsx'
 import Widgets from 'views/Widgets/Widgets.jsx'
 import UserProfile from 'views/Pages/UserProfile.jsx'
 import TimelinePage from 'views/Pages/Timeline.jsx'
+import Venues from 'views/Venues/Venues.jsx'
 
 // @material-ui/icons
 import DashboardIcon from '@material-ui/icons/Dashboard'
@@ -32,6 +33,7 @@ import Place from '@material-ui/icons/Place'
 import WidgetsIcon from '@material-ui/icons/Widgets'
 import Timeline from '@material-ui/icons/Timeline'
 import DateRange from '@material-ui/icons/DateRange'
+import LocationIcon from '@material-ui/icons/LocationOn'
 
 var pages = [
   {
@@ -208,14 +210,12 @@ var dashRoutes = [
     component: Widgets
   },
   {
-    allow: ['administrator'],
     path: '/app/charts',
     name: 'Charts',
     icon: Timeline,
     component: Charts
   },
   {
-    allow: ['user'],
     path: '/app/calendar',
     name: 'Calendar',
     icon: DateRange,
@@ -226,6 +226,13 @@ var dashRoutes = [
     path: '/app',
     pathTo: '/app/dashboard',
     name: 'Dashboard'
+  },
+  {
+    allow: ['user', 'administrator'],
+    path: '/app/venues',
+    name: 'Venues',
+    icon: LocationIcon,
+    component: Venues
   }
 ]
 export default dashRoutes
