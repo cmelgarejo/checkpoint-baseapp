@@ -222,17 +222,18 @@ var dashRoutes = [
     component: Calendar
   },
   {
-    redirect: true,
-    path: '/app',
-    pathTo: '/app/dashboard',
-    name: 'Dashboard'
-  },
-  {
-    allow: ['user', 'administrator'],
+    allow: ['user'],
     path: '/app/venues',
     name: 'Venues',
     icon: LocationIcon,
     component: Venues
+  },
+  {
+    //The redirect one ALWAYS has to be the last in the list
+    redirect: true,
+    path: '/app',
+    pathTo: '/app/dashboard',
+    name: 'Dashboard'
   }
 ]
 export default dashRoutes
