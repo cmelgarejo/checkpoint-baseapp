@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 // import { Manager, Target, Popper } from "react-popper";
 import { withRouter } from 'react-router-dom'
 import { jwtClearToken } from 'shared/jwt'
-import { StateConsumer } from 'shared/state'
+import { resetAuthState } from 'shared/state'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -170,31 +170,24 @@ class HeaderLinks extends React.Component {
             )}
           </Popper>
         </div>
-        <StateConsumer name="auth">
-          {value => {
-            return (
-              <Button
-                color="transparent"
-                aria-label="Person"
-                justIcon
-                className={classes.buttonLink}
-                muiClasses={{
-                  label: ''
-                }}
-                onClick={e => {
-                  jwtClearToken(this.props.history)
-                }}
-              >
-                <Person
-                  className={classes.headerLinksSvg + ' ' + classes.links}
-                />
-                <Hidden mdUp implementation="css">
-                  <span className={classes.linkText}>{'Profile'}</span>
-                </Hidden>
-              </Button>
-            )
+        <Button
+          color="transparent"
+          aria-label="Person"
+          justIcon
+          className={classes.buttonLink}
+          muiClasses={{
+            label: ''
           }}
-        </StateConsumer>
+          onClick={e => {
+            resetAuthState()
+            jwtClearToken(this.props.history)
+          }}
+        >
+          <Person className={classes.headerLinksSvg + ' ' + classes.links} />
+          <Hidden mdUp implementation="css">
+            <span className={classes.linkText}>{'Profile'}</span>
+          </Hidden>
+        </Button>
       </div>
     )
   }

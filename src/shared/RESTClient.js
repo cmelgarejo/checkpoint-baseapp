@@ -42,7 +42,8 @@ const user = {
       if (res.status === 200) {
         return { res: DeserializeUser(await res.json()), error: null }
       }
-      return { res: null, error: await res.json() }
+      const err = await res.json()
+      return { res: null, error: err.errors ? DeserializeError(err) : err }
     } catch (error) {
       return { res: null, error: DeserializeError(error) }
     }

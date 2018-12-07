@@ -208,6 +208,7 @@ var dashRoutes = [
     component: Widgets
   },
   {
+    allow: ['administrator'],
     path: '/app/charts',
     name: 'Charts',
     icon: Timeline,

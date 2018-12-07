@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
   }
 
   handleClick = async (event, value) => {
-    // const { history } = this.props
+    const { history } = this.props
     const {
       loginEmail,
       loginPassw,
@@ -67,11 +67,11 @@ class LoginPage extends React.Component {
     if (loginEmailState === '') this.setState({ loginEmailState: ERR })
     if (loginPasswState === '') this.setState({ loginPasswState: ERR })
     if (loginEmailState === OK && loginPasswState === OK) {
-      await authLogin(loginEmail, loginPassw)
+      const { res, error } = await authLogin(loginEmail, loginPassw)
+      if (error) {
+      }
+      if (!error && res) history.push('/app')
     }
-    // if (value.auth.userInfo) {
-    //   history.push('/app') // User will be kicked to the app page
-    // }
   }
 
   handleChange = (event, stateName, type) => {

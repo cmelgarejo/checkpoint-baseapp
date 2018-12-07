@@ -9,7 +9,8 @@ Serializer.register('error', {})
 
 Serializer.register('user', {})
 
-const DeserializeError = error => error //!!error && Serializer.deserialize('error', error) || error
+const DeserializeError = error => error
+  // error.errors ? Serializer.deserialize('error', error) : error
 const DeserializeUser = user => Serializer.deserialize('user', user)
 
 export { Serializer, DeserializeError, DeserializeUser }

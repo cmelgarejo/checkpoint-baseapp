@@ -21,7 +21,12 @@ const setAuthState = (key, value) => {
   setGlobalState('auth', { ...auth, [key]: value })
 }
 
-// const getAuthState
+export const getAuthState = () => {
+  return getGlobalState('auth')
+}
+
+export const resetAuthState = () =>
+  setGlobalState('auth', { auth: initialState.auth })
 
 export const setAuthError = value => setAuthState('error', value)
 
@@ -31,22 +36,26 @@ export const setAuthUserInfo = value => setAuthState('userInfo', value)
 
 export const authLogin = async (user, pass) => {
   setAuthLoading(true)
+  setAuthError(null)
   const { res, error } = await RESTClient.user.login(user, pass)
-  if (error) {
-    setAuthError(error)
-  }
+  if (error) setAuthError(error)
+
   if (res && !error) await authCheckMe()
   setAuthLoading(false)
+  return { res, error }
 }
 
 export const authCheckMe = async () => {
   setAuthLoading(true)
+  setAuthError(null)
   const { res, error } = await RESTClient.user.check()
-  if (error) {
-    setAuthError(error)
+  if (error) setAuthError(error)
+
+  if (res && !error) {
+    setAuthUserInfo(res)
   }
-  if (res && !error) setAuthUserInfo(res)
   setAuthLoading(false)
+  return { res, error }
 }
 
 export { StateProvider, StateConsumer }

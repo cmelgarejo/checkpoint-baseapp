@@ -26,7 +26,7 @@ const switchRoutes = roles => (
     {appRoutes.map((prop, key) => {
       if (
         roles &&
-        roles.reduce((a, c) => prop.allow && prop.allow.includes(c), false)
+        roles.reduce((a, c) => prop.allow && !prop.allow.includes(c), false)
       ) {
         console.log('poopy!', roles, prop.allow)
         return undefined
@@ -107,7 +107,6 @@ class Dashboard extends React.Component {
   }
   render() {
     const { classes, userInfo, ...rest } = this.props
-    console.log('Dashboard.userInfo:', userInfo)
     const mainPanel =
       classes.mainPanel +
       ' ' +
@@ -117,7 +116,7 @@ class Dashboard extends React.Component {
           navigator.platform.indexOf('Win') > -1
       })
 
-    const pooproutes = userInfo
+    const filteredRoutes = userInfo
       ? appRoutes.reduce((acc, cur) => {
           return cur.allow &&
             userInfo.acl_roles.reduce((a, c) => cur.allow.includes(c), false)
@@ -125,11 +124,10 @@ class Dashboard extends React.Component {
             : acc
         }, [])
       : []
-    console.log('pooproutes:', pooproutes)
     return (
       <div className={classes.wrapper}>
         <Sidebar
-          routes={pooproutes}
+          routes={filteredRoutes}
           logoText={'Checkpoint'}
           logo={logo}
           image={image}
