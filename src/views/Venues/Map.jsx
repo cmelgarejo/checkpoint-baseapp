@@ -27,6 +27,7 @@ import {
   TileLayer,
   Tooltip
 } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
 
 const center = [51.505, -0.09]
 
@@ -56,7 +57,11 @@ class Venues extends React.Component {
       <div>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={12}>
-            <Map center={center} zoom={13}>
+            <Map
+              center={center}
+              zoom={13}
+              style={{ width: '100%', height: 'calc(100vh - 71px)' }}
+            >
               <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

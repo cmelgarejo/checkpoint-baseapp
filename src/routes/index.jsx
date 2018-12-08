@@ -15,7 +15,6 @@ const LoadablePages = Loadable({
   loading: Loading,
   delay: 300
 })
-
 var indexRoutes = [
   { path: '/app', name: 'App', component: LoadableApp },
   { path: '/', name: 'Home', component: LoadablePages }

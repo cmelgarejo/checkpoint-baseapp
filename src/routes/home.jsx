@@ -28,14 +28,6 @@ const pagesRoutes = [
     component: LandingPage
   }
   // {
-  //   path: '/pages/pricing-page',
-  //   name: 'Pricing Page',
-  //   short: 'Pricing',
-  //   mini: 'PP',
-  //   icon: MonetizationOn,
-  //   component: PricingPage
-  // },
-  // {
   //   path: '/pages/lock-screen-page',
   //   name: 'Lock Screen Page',
   //   short: 'Lock',

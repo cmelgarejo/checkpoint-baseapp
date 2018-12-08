@@ -21,7 +21,7 @@ import Calendar from 'views/Calendar/Calendar.jsx'
 import Widgets from 'views/Widgets/Widgets.jsx'
 import UserProfile from 'views/Pages/UserProfile.jsx'
 import TimelinePage from 'views/Pages/Timeline.jsx'
-import Venues from 'views/Venues/Venues.jsx'
+import Venues from 'views/Venues/Map'
 
 // @material-ui/icons
 import DashboardIcon from '@material-ui/icons/Dashboard'

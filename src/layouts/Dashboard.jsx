@@ -11,7 +11,6 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 // core components
 import Header from 'components/Header/Header.jsx'
-import Footer from 'components/Footer/Footer.jsx'
 import Sidebar from 'components/Sidebar/Sidebar.jsx'
 import Loader from 'components/Loader'
 
@@ -162,7 +161,6 @@ class Dashboard extends React.Component {
               {switchRoutes(userInfo && userInfo.acl_roles)}
             </div>
           )}
-          {this.getRoute() ? <Footer fluid /> : null}
         </div>
       </div>
     )
