@@ -28,7 +28,7 @@ const switchRoutes = roles => (
         roles &&
         roles.reduce((a, c) => prop.allow && !prop.allow.includes(c), false)
       ) {
-        console.log('poopy!', roles, prop.allow)
+        // console.log('poopy!', roles, prop.allow)
         return undefined
       }
       if (prop.redirect)
@@ -137,7 +137,6 @@ class Dashboard extends React.Component {
           handleDrawerToggle={this.handleDrawerToggle}
           open={this.state.mobileOpen}
           color="blue"
-          bgColor="black"
           miniActive={this.state.miniActive}
           {...rest}
         />
@@ -145,7 +144,7 @@ class Dashboard extends React.Component {
           <Header
             sidebarMinimize={this.sidebarMinimize.bind(this)}
             miniActive={this.state.miniActive}
-            routes={appRoutes}
+            routes={filteredRoutes}
             handleDrawerToggle={this.handleDrawerToggle}
             {...rest}
           />

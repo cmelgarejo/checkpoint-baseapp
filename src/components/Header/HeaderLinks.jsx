@@ -69,20 +69,24 @@ class HeaderLinks extends React.Component {
           className={searchButton}
         >
           <Search
-            className={classes.headerLinksSvg + ' ' + classes.searchIcon}
+            className={`${classes.headerLinksSvg} ${classes.searchIcon}`}
           />
         </Button> */}
         <Button
           color="transparent"
           simple
           aria-label={t('Dashboard')}
+          title={t('Dashboard')}
           justIcon
           className={classes.buttonLink}
           muiClasses={{
             label: ''
           }}
+          onClick={e => {
+            this.props.history.push('/app/dashboard')
+          }}
         >
-          <Dashboard className={classes.headerLinksSvg + ' ' + classes.links} />
+          <Dashboard className={`${classes.headerLinksSvg} ${classes.links}`} />
           <Hidden mdUp implementation="css">
             <span className={classes.linkText}>{t('Dashboard')}</span>
           </Hidden>
@@ -104,7 +108,7 @@ class HeaderLinks extends React.Component {
             }}
           >
             <Notifications
-              className={classes.headerLinksSvg + ' ' + classes.links}
+              className={`${classes.headerLinksSvg} ${classes.links}`}
             />
             <span className={classes.notifications}>5</span>
             <Hidden mdUp implementation="css">
@@ -175,6 +179,7 @@ class HeaderLinks extends React.Component {
           color="transparent"
           aria-label={t('Logout')}
           justIcon
+          title={t('Logout')}
           className={classes.buttonLink}
           muiClasses={{
             label: t('Logout')
@@ -184,7 +189,7 @@ class HeaderLinks extends React.Component {
             jwtClearToken(this.props.history)
           }}
         >
-          <ExitToApp className={classes.headerLinksSvg + ' ' + classes.links} />
+          <ExitToApp className={`${classes.headerLinksSvg} ${classes.links}`} />
           <Hidden mdUp implementation="css">
             <span className={classes.linkText}>{t('Logout')}</span>
           </Hidden>

@@ -61,11 +61,11 @@ class Sidebar extends React.Component {
     super(props)
     this.state = {
       openAvatar: false,
-      openComponents: this.activeRoute('/components'),
-      openForms: this.activeRoute('/forms'),
-      openTables: this.activeRoute('/tables'),
-      openMaps: this.activeRoute('/maps'),
-      openPages: this.activeRoute('-page'),
+      // openComponents: this.activeRoute('/components'),
+      // openForms: this.activeRoute('/forms'),
+      // openTables: this.activeRoute('/tables'),
+      // openMaps: this.activeRoute('/maps'),
+      // openPages: this.activeRoute('-page'),
       miniActive: true
     }
     this.activeRoute.bind(this)
@@ -129,10 +129,10 @@ class Sidebar extends React.Component {
           />
         </div>
         <List className={classes.list}>
-          <ListItem className={classes.item + ' ' + classes.userItem}>
+          <ListItem className={`${classes.item} ${classes.userItem}`}>
             <NavLink
               to={'#'}
-              className={classes.itemLink + ' ' + classes.userCollapseButton}
+              className={`${classes.itemLink} ${classes.userCollapseButton}`}
               onClick={() => this.openCollapse('openAvatar')}
             >
               <ListItemText
@@ -149,7 +149,7 @@ class Sidebar extends React.Component {
                   />
                 }
                 disableTypography={true}
-                className={itemText + ' ' + classes.userItemText}
+                className={`${itemText} ${classes.userItemText}`}
               />
             </NavLink>
             <Collapse in={this.state.openAvatar} unmountOnExit>
@@ -157,9 +157,9 @@ class Sidebar extends React.Component {
                 <ListItem className={classes.collapseItem}>
                   <NavLink
                     to="#"
-                    className={
-                      classes.itemLink + ' ' + classes.userCollapseLinks
-                    }
+                    className={`${classes.itemLink} ${
+                      classes.userCollapseLinks
+                    }`}
                   >
                     <span className={collapseItemMini}>P</span>
                     <ListItemText
@@ -173,7 +173,7 @@ class Sidebar extends React.Component {
                   <NavLink
                     to="#"
                     className={
-                      classes.itemLink + ' ' + classes.userCollapseLinks
+                      `${classes.itemLink } ${ classes.userCollapseLinks}`
                     }
                   >
                     <span className={collapseItemMini}>P</span>
@@ -188,7 +188,7 @@ class Sidebar extends React.Component {
                   <NavLink
                     to="#"
                     className={
-                      classes.itemLink + ' ' + classes.userCollapseLinks
+                      `${classes.itemLink } ${ classes.userCollapseLinks}`
                     }
                   >
                     <span className={collapseItemMini}>{'S'}</span>
@@ -249,7 +249,7 @@ class Sidebar extends React.Component {
                     )}
                   </ListItemIcon>
                   <ListItemText
-                    primary={prop.name}
+                    primary={t(prop.name)}
                     secondary={
                       <b
                         className={
@@ -264,7 +264,7 @@ class Sidebar extends React.Component {
                   />
                 </NavLink>
                 <Collapse in={this.state[prop.state]} unmountOnExit>
-                  <List className={classes.list + ' ' + classes.collapseList}>
+                  <List className={`${classes.list} ${classes.collapseList}`}>
                     {prop.views.map((prop, key) => {
                       if (prop.redirect) {
                         return null
@@ -283,7 +283,7 @@ class Sidebar extends React.Component {
                               {prop.mini}
                             </span>
                             <ListItemText
-                              primary={prop.name}
+                              primary={t(prop.name)}
                               disableTypography={true}
                               className={collapseItemText}
                             />
@@ -321,7 +321,7 @@ class Sidebar extends React.Component {
                   )}
                 </ListItemIcon>
                 <ListItemText
-                  primary={prop.name}
+                  primary={t(prop.name)}
                   disableTypography={true}
                   className={itemText}
                 />
@@ -383,7 +383,7 @@ class Sidebar extends React.Component {
             anchor={'right'}
             open={this.props.open}
             classes={{
-              paper: drawerPaper + ' ' + classes[bgColor + 'Background']
+              paper: `${drawerPaper} ${classes[`${bgColor}Background`]}`
             }}
             onClose={this.props.handleDrawerToggle}
             ModalProps={{
@@ -400,7 +400,7 @@ class Sidebar extends React.Component {
             {image !== undefined ? (
               <div
                 className={classes.background}
-                style={{ backgroundImage: 'url(' + image + ')' }}
+                style={{ backgroundImage: `url(${image})` }}
               />
             ) : null}
           </Drawer>
@@ -413,7 +413,7 @@ class Sidebar extends React.Component {
             variant="permanent"
             open
             classes={{
-              paper: drawerPaper + ' ' + classes[bgColor + 'Background']
+              paper: `${drawerPaper} ${classes[`${bgColor}Background`]}`
             }}
           >
             {brand}
@@ -425,7 +425,7 @@ class Sidebar extends React.Component {
             {image !== undefined ? (
               <div
                 className={classes.background}
-                style={{ backgroundImage: 'url(' + image + ')' }}
+                style={{ backgroundImage: `url(${image})` }}
               />
             ) : null}
           </Drawer>
@@ -436,7 +436,7 @@ class Sidebar extends React.Component {
 }
 
 Sidebar.defaultProps = {
-  bgColor: 'blue'
+  bgColor: 'black'
 }
 
 Sidebar.propTypes = {

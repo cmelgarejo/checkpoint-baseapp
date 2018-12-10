@@ -21,7 +21,7 @@ import Calendar from 'views/Calendar/Calendar.jsx'
 import Widgets from 'views/Widgets/Widgets.jsx'
 import UserProfile from 'views/Pages/UserProfile.jsx'
 import TimelinePage from 'views/Pages/Timeline.jsx'
-import Venues from 'views/Venues/Map'
+import VenuesMap from 'views/Venues/containers/Map'
 
 // @material-ui/icons
 import DashboardIcon from '@material-ui/icons/Dashboard'
@@ -226,7 +226,7 @@ var dashRoutes = [
     path: '/app/venues',
     name: 'Venues',
     icon: LocationIcon,
-    component: Venues
+    component: VenuesMap
   },
   {
     //The redirect one ALWAYS has to be the last in the list

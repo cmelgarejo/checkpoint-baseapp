@@ -28,8 +28,8 @@ const venuesStyle = {
     marginRight: '5px'
   },
   icons: {
-    width: '17px',
-    height: '17px'
+    width: '35px',
+    height: '35px'
   }
 }
 

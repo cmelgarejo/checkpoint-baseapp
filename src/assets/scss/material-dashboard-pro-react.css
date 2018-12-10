@@ -2538,3 +2538,7 @@ img {
       width: 100%; }
   .picture-container .picture-src {
     width: 100%; }
+
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important; }

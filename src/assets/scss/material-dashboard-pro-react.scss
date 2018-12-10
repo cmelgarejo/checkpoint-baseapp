@@ -17,3 +17,8 @@
 // Core CSS
 @import 'material-dashboard-pro-react/misc';
 @import 'material-dashboard-pro-react/fileupload';
+
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
