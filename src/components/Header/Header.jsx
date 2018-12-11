@@ -18,6 +18,7 @@ import HeaderLinks from './HeaderLinks'
 import Button from 'components/CustomButtons/Button.jsx'
 
 import headerStyle from 'assets/jss/material-dashboard-pro-react/components/headerStyle.jsx'
+import { withNamespaces } from 'react-i18next'
 
 function Header({ ...props }) {
   function makeBrand() {
@@ -37,9 +38,9 @@ function Header({ ...props }) {
       return null
     })
     if (name) {
-      return name
+      return props.t(name)
     } else {
-      return 'Default Brand Name'
+      return props.t('Checkpoint')
     }
   }
   const { classes, color } = props
@@ -104,4 +105,4 @@ Header.propTypes = {
   color: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger'])
 }
 
-export default withStyles(headerStyle)(Header)
+export default withNamespaces('header')(withStyles(headerStyle)(Header))

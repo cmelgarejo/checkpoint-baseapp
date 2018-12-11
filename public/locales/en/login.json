@@ -3,5 +3,6 @@
   "signin": "Sign In",
   "email": "Email",
   "password": "Password",
-  "401 - Unauthorized": "Incorrect user and/or password "
+  "401 - Unauthorized": "Incorrect user and/or password",
+  "403 - Forbidden": "Access denied to user"
 }

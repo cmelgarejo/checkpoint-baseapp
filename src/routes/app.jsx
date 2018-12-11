@@ -52,6 +52,7 @@ var pages = [
 
 var dashRoutes = [
   {
+    allow: ['user'],
     path: '/app/dashboard',
     name: 'Dashboard',
     icon: DashboardIcon,
