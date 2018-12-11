@@ -67,7 +67,7 @@ class LandingPage extends React.Component {
               </h3>
             </GridItem>
             <GridItem xs={12} className={classes.textCenter}>
-              <Button color="success" onClick={() => this.handleClick()}>
+              <Button color="info" onClick={() => this.handleClick()}>
                 {t('Start')}
               </Button>
             </GridItem>
