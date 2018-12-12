@@ -2,6 +2,8 @@ import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { withNamespaces } from 'react-i18next'
+
 // creates a beautiful scrollbar
 import PerfectScrollbar from 'perfect-scrollbar'
 import 'perfect-scrollbar/css/perfect-scrollbar.css'
@@ -106,17 +108,15 @@ class Dashboard extends React.Component {
     }
   }
   render() {
-    const { classes, authInfo, ...rest } = this.props
+    const { classes, t, authInfo, ...rest } = this.props
     const { loading, userInfo, error } = authInfo
-    if (loading) return <Loader loaderProps={{ error }} />
-    const mainPanel =
-      classes.mainPanel +
-      ' ' +
-      cx({
-        [classes.mainPanelSidebarMini]: this.state.miniActive,
-        [classes.mainPanelWithPerfectScrollbar]:
-          navigator.platform.indexOf('Win') > -1
-      })
+    if (loading) return <Loader error={error} />
+
+    const mainPanel = `${classes.mainPanel} ${cx({
+      [classes.mainPanelSidebarMini]: this.state.miniActive,
+      [classes.mainPanelWithPerfectScrollbar]:
+        navigator.platform.indexOf('Win') > -1
+    })}`
 
     const filteredRoutes = userInfo
       ? appRoutes.reduce((acc, cur) => {
@@ -131,7 +131,7 @@ class Dashboard extends React.Component {
         <Sidebar
           authInfo={authInfo}
           routes={filteredRoutes}
-          logoText={'Checkpoint'}
+          logoText={t('Checkpoint')}
           logo={logo}
           image={image}
           handleDrawerToggle={this.handleDrawerToggle}
@@ -170,4 +170,4 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(appStyle)(Dashboard)
+export default withNamespaces('dashboard')(withStyles(appStyle)(Dashboard))

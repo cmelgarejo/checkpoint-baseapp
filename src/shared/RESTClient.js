@@ -7,7 +7,8 @@ import {
 } from 'shared/jsonapi'
 
 const API_URL = process.env.REACT_APP_API_BASE_URL
-
+const API_AUTH_PATH = 'auth'
+const API_VENUES_PATH = 'venues'
 const baseReqOptions = (options = {}) => ({
   method: 'GET',
   headers: {
@@ -24,7 +25,7 @@ const user = {
       'base64'
     )
     try {
-      const res = await fetch(`${API_URL}/auth/signin`, {
+      const res = await fetch(`${API_URL}/${API_AUTH_PATH}/signin`, {
         method: 'POST',
         headers: {
           Authorization: `Basic ${auth}`
@@ -44,7 +45,10 @@ const user = {
   },
   check: async () => {
     try {
-      const res = await fetch(`${API_URL}/auth/me`, baseReqOptions())
+      const res = await fetch(
+        `${API_URL}/${API_AUTH_PATH}/me`,
+        baseReqOptions()
+      )
       if (res.status === 200) {
         return { res: DeserializeUser(await res.json()), error: null }
       }
@@ -57,9 +61,12 @@ const user = {
 }
 
 const venues = {
-  list: async () => {
+  list: async ({ filter, sort, pagination }) => {
     try {
-      const res = await fetch(`${API_URL}/venues`, baseReqOptions())
+      const res = await fetch(
+        `${API_URL}/${API_VENUES_PATH}?${pagination}&${filter}&${sort}`,
+        baseReqOptions()
+      )
       if (res.status === 200) {
         return { res: DeserializeVenue(await res.json()), error: null }
       }

@@ -2,7 +2,7 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import Loader from 'components/Loader'
 
-const Loading = props => <Loader loaderProps={props} />
+const Loading = props => <Loader {...props} />
 
 const LoadableApp = Loadable({
   loader: () => import('layouts/App.jsx'),

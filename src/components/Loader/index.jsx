@@ -5,13 +5,13 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
 
 import loaderStyle from 'assets/jss/material-dashboard-pro-react/views/loaderStyle.jsx'
 import { withNamespaces } from 'react-i18next'
 
-const Loader = ({ loaderProps, classes, t }) => {
-  if (loaderProps.error) {
-    // console.error(loaderProps.error)
+const Loader = ({ classes, t, error, retry, message }) => {
+  if (error) {
     return (
       <GridContainer
         spacing={0}
@@ -22,7 +22,7 @@ const Loader = ({ loaderProps, classes, t }) => {
       >
         <GridItem item xs={6}>
           {t(`errorMessage`)}
-          <button onClick={loaderProps.retry}>{t('Retry')}</button>
+          <Button onClick={retry}>{t('Retry')}></Button>
         </GridItem>
       </GridContainer>
     )
@@ -40,7 +40,7 @@ const Loader = ({ loaderProps, classes, t }) => {
         <CircularProgress size={144} />
       </GridItem>
       <GridItem item xs={12}>
-        <h5>{t('nowLoading')}</h5>
+        <h5>{message && t('nowLoading')}</h5>
       </GridItem>
     </GridContainer>
   )

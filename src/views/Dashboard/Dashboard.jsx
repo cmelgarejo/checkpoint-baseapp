@@ -1,48 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withNamespaces } from 'react-i18next'
+
+import dataClient from 'shared/RESTClient'
+
 // react plugin for creating charts
-import ChartistGraph from 'react-chartist'
+// import ChartistGraph from 'react-chartist'
+
 // react plugin for creating vector maps
-import { VectorMap } from 'react-jvectormap'
+// import { VectorMap } from 'react-jvectormap'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Tooltip from '@material-ui/core/Tooltip'
-import Icon from '@material-ui/core/Icon'
+// import Icon from '@material-ui/core/Icon'
 
 // @material-ui/icons
 // import ContentCopy from "@material-ui/icons/ContentCopy";
 import Store from '@material-ui/icons/Store'
 // import InfoOutline from "@material-ui/icons/InfoOutline";
-import Warning from '@material-ui/icons/Warning'
+// import Warning from '@material-ui/icons/Warning'
 import DateRange from '@material-ui/icons/DateRange'
-import LocalOffer from '@material-ui/icons/LocalOffer'
-import Update from '@material-ui/icons/Update'
-import ArrowUpward from '@material-ui/icons/ArrowUpward'
-import AccessTime from '@material-ui/icons/AccessTime'
+// import LocalOffer from '@material-ui/icons/LocalOffer'
+// import Update from '@material-ui/icons/Update'
+// import ArrowUpward from '@material-ui/icons/ArrowUpward'
+// import AccessTime from '@material-ui/icons/AccessTime'
 import Refresh from '@material-ui/icons/Refresh'
 import Edit from '@material-ui/icons/Edit'
 import Place from '@material-ui/icons/Place'
 import ArtTrack from '@material-ui/icons/ArtTrack'
-import Language from '@material-ui/icons/Language'
+// import Language from '@material-ui/icons/Language'
 
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import Table from 'components/Table/Table.jsx'
+import Loader from 'components/Loader'
+// import Table from 'components/Table/Table.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
-import Danger from 'components/Typography/Danger.jsx'
+// import Danger from 'components/Typography/Danger.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
 import CardIcon from 'components/Card/CardIcon.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
 import CardFooter from 'components/Card/CardFooter.jsx'
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from 'variables/charts'
+// import {
+//   dailySalesChart,
+//   emailsSubscriptionChart,
+//   completedTasksChart
+// } from 'variables/charts'
 
 import dashboardStyle from 'assets/jss/material-dashboard-pro-react/views/dashboardStyle'
 
@@ -50,72 +56,59 @@ import priceImage1 from 'assets/img/road.jpeg'
 import priceImage2 from 'assets/img/road.jpeg'
 import priceImage3 from 'assets/img/road.jpeg'
 
-const us_flag = require('assets/img/flags/US.png')
-const de_flag = require('assets/img/flags/DE.png')
-const au_flag = require('assets/img/flags/AU.png')
-const gb_flag = require('assets/img/flags/GB.png')
-const ro_flag = require('assets/img/flags/RO.png')
-const br_flag = require('assets/img/flags/BR.png')
+// const us_flag = require('assets/img/flags/US.png')
+// const de_flag = require('assets/img/flags/DE.png')
+// const au_flag = require('assets/img/flags/AU.png')
+// const gb_flag = require('assets/img/flags/GB.png')
+// const ro_flag = require('assets/img/flags/RO.png')
+// const br_flag = require('assets/img/flags/BR.png')
 
-var mapData = {
-  AU: 11760,
-  BR: 550,
-  CA: 120,
-  DE: 1300,
-  FR: 540,
-  GB: 690,
-  GE: 200,
-  IN: 200,
-  RO: 600,
-  RU: 300,
-  US: 2920
-}
+// var mapData = {
+//   AU: 11760,
+//   BR: 550,
+//   CA: 120,
+//   DE: 1300,
+//   FR: 540,
+//   GB: 690,
+//   GE: 200,
+//   IN: 200,
+//   RO: 600,
+//   RU: 300,
+//   US: 2920
+// }
 
 class Dashboard extends React.Component {
   state = {
-    value: 0
+    loadingData: false,
+    data: { error: null }
   }
-  handleChange = (event, value) => {
-    this.setState({ value })
-  }
-  handleChangeIndex = index => {
-    this.setState({ value: index })
+  componentDidMount() {
+    this.setState({ loadingData: true }, async () => {
+      if (this.state.loadingData) {
+        console.log('get data...')
+        const data = await dataClient.venues.list({
+          sort: 'created_at=-desc',
+          pagination: `page[limit]=${0}`
+        })
+        this.setState({ loadingData: false, data })
+      }
+    })
   }
   render() {
-    const { classes } = this.props
+    const { classes, t } = this.props
+    const { loadingData, data } = this.state
+    if (loadingData) return <Loader error={data.error} />
+    console.log(data)
     return (
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={6} md={6} lg={3}>
-            <Card>
-              <CardHeader color="warning" stats icon>
-                <CardIcon color="warning">
-                  <Icon>content_copy</Icon>
-                </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
-                <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
-                </h3>
-              </CardHeader>
-              <CardFooter stats>
-                <div className={classes.stats}>
-                  <Danger>
-                    <Warning />
-                  </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
-                  </a>
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
           <GridItem xs={12} sm={6} md={6} lg={3}>
             <Card>
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">
                   <Store />
                 </CardIcon>
-                <p className={classes.cardCategory}>Revenue</p>
+                <p className={classes.cardCategory}>{t('Venues')}</p>
                 <h3 className={classes.cardTitle}>$34,245</h3>
               </CardHeader>
               <CardFooter stats>
@@ -126,42 +119,8 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={6} lg={3}>
-            <Card>
-              <CardHeader color="danger" stats icon>
-                <CardIcon color="danger">
-                  <Icon>info_outline</Icon>
-                </CardIcon>
-                <p className={classes.cardCategory}>Fixed Issues</p>
-                <h3 className={classes.cardTitle}>75</h3>
-              </CardHeader>
-              <CardFooter stats>
-                <div className={classes.stats}>
-                  <LocalOffer />
-                  Tracked from Github
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={6} md={6} lg={3}>
-            <Card>
-              <CardHeader color="info" stats icon>
-                <CardIcon color="info">
-                  <i className="fab fa-twitter" />
-                </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
-                <h3 className={classes.cardTitle}>+245</h3>
-              </CardHeader>
-              <CardFooter stats>
-                <div className={classes.stats}>
-                  <Update />
-                  Just Updated
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
         </GridContainer>
-        <GridContainer>
+        {/* <GridContainer>
           <GridItem xs={12}>
             <Card>
               <CardHeader color="success" icon>
@@ -394,14 +353,14 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-        </GridContainer>
-        <h3>Manage Listings</h3>
+        </GridContainer> */}
+        <h3>{t('Latest Venues')}</h3>
         <br />
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <Card product className={classes.cardHover}>
               <CardHeader image className={classes.cardHeaderHover}>
-                <a href="#pablo" onClick={e => e.preventDefault()}>
+                <a href="#checkpoint" onClick={e => e.preventDefault()}>
                   <img src={priceImage1} alt="..." />
                 </a>
               </CardHeader>
@@ -439,7 +398,7 @@ class Dashboard extends React.Component {
                   </Tooltip>
                 </div>
                 <h4 className={classes.cardProductTitle}>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                  <a href="#checkpoint" onClick={e => e.preventDefault()}>
                     Cozy 5 Stars Apartment
                   </a>
                 </h4>
@@ -462,7 +421,7 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={4}>
             <Card product className={classes.cardHover}>
               <CardHeader image className={classes.cardHeaderHover}>
-                <a href="#pablo" onClick={e => e.preventDefault()}>
+                <a href="#checkpoint" onClick={e => e.preventDefault()}>
                   <img src={priceImage2} alt="..." />
                 </a>
               </CardHeader>
@@ -500,7 +459,7 @@ class Dashboard extends React.Component {
                   </Tooltip>
                 </div>
                 <h4 className={classes.cardProductTitle}>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                  <a href="#checkpoint" onClick={e => e.preventDefault()}>
                     Office Studio
                   </a>
                 </h4>
@@ -523,7 +482,7 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={4}>
             <Card product className={classes.cardHover}>
               <CardHeader image className={classes.cardHeaderHover}>
-                <a href="#pablo" onClick={e => e.preventDefault()}>
+                <a href="#checkpoint" onClick={e => e.preventDefault()}>
                   <img src={priceImage3} alt="..." />
                 </a>
               </CardHeader>
@@ -561,7 +520,7 @@ class Dashboard extends React.Component {
                   </Tooltip>
                 </div>
                 <h4 className={classes.cardProductTitle}>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                  <a href="#checkpoint" onClick={e => e.preventDefault()}>
                     Beautiful Castle
                   </a>
                 </h4>
@@ -591,4 +550,6 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(dashboardStyle)(Dashboard)
+export default withNamespaces('dashboard')(
+  withStyles(dashboardStyle)(Dashboard)
+)
