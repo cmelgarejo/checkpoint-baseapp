@@ -29,9 +29,9 @@ const CustomMarker = ({
   tooltipOptions
 }) => {
   const icon = new L.Icon({
-    iconRetinaUrl: _marker2x,
-    iconUrl: _marker,
-    shadowUrl: _markerShadow,
+    iconRetinaUrl: marker2x || _marker2x,
+    iconUrl: marker || _marker,
+    shadowUrl: markerShadow || _markerShadow,
     iconSize: iconSize,
     shadowSize: shadowSize,
     iconAnchor: iconAnchor,
@@ -40,12 +40,16 @@ const CustomMarker = ({
   })
   return (
     <Marker position={position} icon={icon} className={classes.marker}>
-      <Popup className={classes.popup} {...popupOptions}>
-        {popup}
-      </Popup>
-      <Tooltip className={classes.tooltip} {...tooltipOptions}>
-        {tooltip}
-      </Tooltip>
+      {popup && (
+        <Popup className={classes.popup} {...popupOptions}>
+          {popup}
+        </Popup>
+      )}
+      {tooltip && (
+        <Tooltip className={classes.tooltip} {...tooltipOptions}>
+          {tooltip}
+        </Tooltip>
+      )}
     </Marker>
   )
 }

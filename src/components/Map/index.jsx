@@ -25,7 +25,7 @@ CheckpointMap.defaultProps = {
   zoom: 12,
   tileLayerURL: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   attribution:
-    '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | CentralGPS&amp;copy',
+    '&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | CentralGPS&copy',
   classes: { map: { width: '100%', height: 'calc(100vh - 71px)' } }
 }
 

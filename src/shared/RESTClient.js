@@ -1,6 +1,10 @@
 // REST Client
 import { jwtSetToken, jwtGetToken } from 'shared/jwt'
-import { DeserializeError, DeserializeUser } from 'shared/jsonapi'
+import {
+  DeserializeError,
+  DeserializeUser,
+  DeserializeVenue
+} from 'shared/jsonapi'
 
 const API_URL = process.env.REACT_APP_API_BASE_URL
 
@@ -52,4 +56,19 @@ const user = {
   }
 }
 
-export default { user }
+const venues = {
+  list: async () => {
+    try {
+      const res = await fetch(`${API_URL}/venues`, baseReqOptions())
+      if (res.status === 200) {
+        return { res: DeserializeVenue(await res.json()), error: null }
+      }
+      const err = await res.json()
+      return { res: null, error: err.errors ? DeserializeError(err) : err }
+    } catch (error) {
+      return { res: null, error: DeserializeError(error) }
+    }
+  }
+}
+
+export default { user, venues }

@@ -24,7 +24,7 @@ export default class SecuredApp extends React.Component {
     const { error } = await authCheckMe()
     this.errorChecking(error)
   }
-  componentWillMount() {
+  componentDidMount() {
     const { loading, userInfo, error } = getAuthState()
     this.errorChecking(error)
     if (!userInfo && !loading && !error) this.authChecking()
