@@ -27,9 +27,6 @@ const VenuePopup = ({ classes, t, venue }) => (
           <p className={classes.cardProductDesciption}>{venue.description}</p>
         </CardBody>
         <CardFooter product>
-          {/* <div className={classes.price}>
-                      <h4>$899/night</h4>
-                    </div> */}
           <div className={`${classes.stats} ${classes.productStats}`}>
             <Place /> {venue.address}
           </div>
