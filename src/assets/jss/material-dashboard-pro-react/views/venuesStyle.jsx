@@ -2,27 +2,27 @@
 // // // Venues view styles
 // #############################
 
+import { cardTitle } from 'assets/jss/material-dashboard-pro-react.jsx'
+
 const venuesStyle = {
   cardTitle: {
-    marginTop: '0',
+    ...cardTitle,
+    marginTop: '0px',
+    marginBottom: '3px'
+  },
+  cardProductTitle: {
+    ...cardTitle,
+    marginTop: '0px',
     marginBottom: '3px',
-    color: '#3C4858',
-    fontSize: '18px'
+    textAlign: 'center'
   },
-  cardHeader: {
-    zIndex: '3'
+  cardHeaderHover: {
+    transition: 'all 300ms cubic-bezier(0.34, 1.61, 0.7, 1)'
   },
-  cardContentLeft: {
-    padding: '15px 20px 15px 0px',
-    position: 'relative'
-  },
-  cardContentRight: {
-    padding: '15px 20px 15px 0px',
-    position: 'relative'
-  },
-  cardContentBottom: {
-    padding: '15px 0px 0px 0px',
-    position: 'relative'
+  productStats: {
+    paddingTop: '7px',
+    paddingBottom: '7px',
+    margin: '0'
   },
   marginRight: {
     marginRight: '5px'

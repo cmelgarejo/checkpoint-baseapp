@@ -30,7 +30,6 @@ const switchRoutes = roles => (
         roles &&
         roles.reduce((a, c) => prop.allow && !prop.allow.includes(c), false)
       ) {
-        // console.log('poopy!', roles, prop.allow)
         return undefined
       }
       if (prop.redirect)

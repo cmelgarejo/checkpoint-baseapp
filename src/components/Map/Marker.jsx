@@ -63,7 +63,7 @@ CustomMarker.defaultProps = {
   popupOptions: {},
   tooltipOptions: {
     sticky: true,
-    direction: 'top'
+    direction: 'bottom'
   }
 }
 

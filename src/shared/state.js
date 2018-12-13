@@ -37,25 +37,25 @@ export const setAuthUserInfo = value => setAuthState('userInfo', value)
 export const authLogin = async (user, pass) => {
   setAuthLoading(true)
   setAuthError(null)
-  const { res, error } = await RESTClient.user.login(user, pass)
+  const { data, error } = await RESTClient.user.login(user, pass)
   if (error) setAuthError(error)
 
-  if (res && !error) await authCheckMe()
+  if (data && !error) await authCheckMe()
   setAuthLoading(false)
-  return { res, error }
+  return { data, error }
 }
 
 export const authCheckMe = async () => {
   setAuthLoading(true)
   // setAuthError(null)
-  const { res, error } = await RESTClient.user.check()
+  const { data, error } = await RESTClient.user.check()
   // if (error) setAuthError(error)
 
-  if (res && !error) {
-    setAuthUserInfo(res)
+  if (data && !error) {
+    setAuthUserInfo(data)
   }
   setAuthLoading(false)
-  return { res, error }
+  return { data, error }
 }
 
 export { StateProvider, StateConsumer }

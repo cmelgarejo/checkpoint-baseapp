@@ -94,11 +94,11 @@ class LoginPage extends React.Component {
     if (loginEmailState === '') this.setState({ loginEmailState: ERR })
     if (loginPasswState === '') this.setState({ loginPasswState: ERR })
     if (loginEmailState === OK && loginPasswState === OK) {
-      const { res, error } = await authLogin(loginEmail, loginPassw)
+      const { data, error } = await authLogin(loginEmail, loginPassw)
       this.showNotification(error)
       if (error) {
       }
-      if (!error && res) history.push('/app')
+      if (!error && data) history.push('/app')
     }
   }
 

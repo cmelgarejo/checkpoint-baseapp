@@ -4,5 +4,6 @@
   "email": "Email",
   "password": "Password",
   "401 - Unauthorized": "Incorrect user and/or password",
-  "403 - Forbidden": "Access denied to user"
+  "403 - Forbidden": "Access denied",
+  "500 - TypeError- Failed to fetch": "No se puede conectar con el servidor"
 }

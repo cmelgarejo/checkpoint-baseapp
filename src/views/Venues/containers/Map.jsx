@@ -5,22 +5,21 @@ import Loader from 'components/Loader'
 
 class Container extends React.Component {
   state = {
-    loadingData: false,
-    data: { error: null }
+    loadingData: true,
+    venues: { error: null }
   }
   componentDidMount() {
-    this.setState({ loadingData: true }, async () => {
+    this.setState({ loadingData: true, error: null }, async () => {
       if (this.state.loadingData) {
-        const data = await dataClient.venues.list()
-        this.setState({ loadingData: false, data })
+        const venues = await dataClient.venues.list({})
+        this.setState({ loadingData: false, venues })
       }
     })
   }
   render() {
-    const { loadingData, data } = this.state
-    console.log(data)
-    if (loadingData) return <Loader error={data.error} />
-    return <Map venues={data.res} />
+    const { loadingData, venues } = this.state
+    if (loadingData) return <Loader error={venues.error} />
+    return <Map venues={venues.data} />
   }
 }
 

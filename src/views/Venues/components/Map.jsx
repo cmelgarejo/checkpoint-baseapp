@@ -6,6 +6,8 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Map from 'components/Map'
 import Marker from 'components/Map/Marker'
 
+import VenuePopup from './VenuePopup'
+
 import venuesStyle from 'assets/jss/material-dashboard-pro-react/views/venuesStyle.jsx'
 
 class Venues extends React.Component {
@@ -18,9 +20,9 @@ class Venues extends React.Component {
             {venues &&
               venues.map(v => (
                 <Marker
-                  key={v.name}
+                  key={v.id}
                   position={[v.lat, v.lon]}
-                  popup={<span style={{ color: 'red' }}>{v.name}</span>}
+                  popup={<VenuePopup venue={v} />}
                   tooltip={v.name}
                 />
               ))}

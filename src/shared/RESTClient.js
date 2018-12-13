@@ -20,10 +20,11 @@ const baseReqOptions = (options = {}) => ({
 
 const user = {
   login: async (username, password) => {
-    let login = { res: true, error: null }
+    let login = { data: true, error: null }
     const auth = Buffer.from(`${username}:${password}`, 'utf8').toString(
       'base64'
     )
+    let status = 500
     try {
       const res = await fetch(`${API_URL}/${API_AUTH_PATH}/signin`, {
         method: 'POST',
@@ -31,50 +32,86 @@ const user = {
           Authorization: `Basic ${auth}`
         }
       })
-      if (res.status !== 201)
-        login = { res: false, error: `${res.status} - ${res.statusText}` }
+      status = res.status
+      console.log(status)
+      if (status !== 201)
+        login = { data: false, error: `${status} - ${res.statusText}` }
       else {
         const jwtData = await res.json()
         jwtSetToken(jwtData.token)
       }
     } catch (error) {
-      login = { res: false, error: error }
+      login = {
+        data: false,
+        error: `${status} - ${error.toString().replace(/:/, '-')}`
+      }
       console.error('RESTClient.user.login:', login)
     }
     return login
   },
   check: async () => {
+    let check = {}
     try {
       const res = await fetch(
         `${API_URL}/${API_AUTH_PATH}/me`,
         baseReqOptions()
       )
       if (res.status === 200) {
-        return { res: DeserializeUser(await res.json()), error: null }
+        check = { data: DeserializeUser(await res.json()), error: null }
+      } else {
+        const err = await res.json()
+        check = { data: null, error: err.errors ? DeserializeError(err) : err }
       }
-      const err = await res.json()
-      return { res: null, error: err.errors ? DeserializeError(err) : err }
     } catch (error) {
-      return { res: null, error: DeserializeError(error) }
+      const err = { data: null, error: DeserializeError(error) }
+      console.error('RESTClient.user.check:', err)
     }
+    return check
   }
 }
 
 const venues = {
-  list: async ({ filter, sort, pagination }) => {
+  list: async ({ filter = '', sort = '', pagination = '' }) => {
+    let list = {}
     try {
+      const query =
+        filter || sort || pagination
+          ? [`filter=${filter}`, `sort=${sort}`, `${pagination}`].join('&')
+          : ''
       const res = await fetch(
-        `${API_URL}/${API_VENUES_PATH}?${pagination}&${filter}&${sort}`,
+        `${API_URL}/${API_VENUES_PATH}?${query}`,
         baseReqOptions()
       )
       if (res.status === 200) {
-        return { res: DeserializeVenue(await res.json()), error: null }
+        list = { data: DeserializeVenue(await res.json()), error: null }
+      } else {
+        const err = await res.json()
+        list = { data: null, error: err.errors ? DeserializeError(err) : err }
       }
-      const err = await res.json()
-      return { res: null, error: err.errors ? DeserializeError(err) : err }
     } catch (error) {
-      return { res: null, error: DeserializeError(error) }
+      list = { data: null, error: DeserializeError(error) }
+      console.error('RESTClient.venues.list:', list)
     }
+    return list
+  },
+  count: async () => {
+    let count = {}
+    try {
+      const res = await fetch(
+        `${API_URL}/${API_VENUES_PATH}/count`,
+        baseReqOptions()
+      )
+      if (res.status === 200) {
+        count = { data: await res.json(), error: null }
+      } else {
+        const err = await res.json()
+        count = { data: null, error: err.errors ? DeserializeError(err) : err }
+      }
+    } catch (error) {
+      count = { data: null, error: DeserializeError(error) }
+      console.error('RESTClient.venues.count:', count)
+    }
+    return count
   }
 }
 
