@@ -33,7 +33,6 @@ const user = {
         }
       })
       status = res.status
-      console.log(status)
       if (status !== 201)
         login = { data: false, error: `${status} - ${res.statusText}` }
       else {

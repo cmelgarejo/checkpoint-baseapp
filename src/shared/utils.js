@@ -13,3 +13,5 @@ export function verifyLength(value, length) {
   }
   return false
 }
+
+export const getImage =(entity, slot =0) => entity.length && entity[slot].resource

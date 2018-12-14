@@ -82,6 +82,10 @@ const dashboardStyle = {
       marginBottom: '0px',
       marginTop: '0px'
     }
+  },
+  img: {
+    width: '100% !important',
+    height: 'auto'
   }
 }
 

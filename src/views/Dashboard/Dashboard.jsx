@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { withNamespaces } from 'react-i18next'
 
 import dataClient from 'shared/RESTClient'
+import { getImage } from 'shared/utils'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -32,7 +33,8 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 
 import dashboardStyle from 'assets/jss/material-dashboard-pro-react/views/dashboardStyle'
 
-import priceImage1 from 'assets/img/road.jpeg'
+import defaultImage from 'assets/img/road.jpeg'
+
 class Dashboard extends React.Component {
   state = {
     loadingData: true,
@@ -44,7 +46,7 @@ class Dashboard extends React.Component {
       if (this.state.loadingData) {
         const venues = await dataClient.venues.list({
           sort: '-created_at',
-          pagination: `page[size]=3`
+          pagination: `page[size]=4`
         })
         const venueCount = await dataClient.venues.count()
         this.setState({ loadingData: false, venues, venueCount })
@@ -88,7 +90,11 @@ class Dashboard extends React.Component {
                 <Card product className={classes.cardHover}>
                   <CardHeader image className={classes.cardHeaderHover}>
                     <a href="#checkpoint" onClick={e => e.preventDefault()}>
-                      <img src={v.images || priceImage1} alt="..." />
+                      <img
+                        src={getImage(v.images) || defaultImage}
+                        alt={v.name}
+                        className={classes.img}
+                      />
                     </a>
                   </CardHeader>
                   <CardBody>
