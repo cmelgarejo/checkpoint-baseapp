@@ -44,12 +44,6 @@ class Wizard extends React.Component {
       },
       allStates: []
     }
-    this.navigationStepChange = this.navigationStepChange.bind(this)
-    this.refreshAnimation = this.refreshAnimation.bind(this)
-    this.previousButtonClick = this.previousButtonClick.bind(this)
-    this.previousButtonClick = this.previousButtonClick.bind(this)
-    this.finishButtonClick = this.finishButtonClick.bind(this)
-    this.updateWidth = this.updateWidth.bind(this)
   }
   componentDidMount() {
     this.refreshAnimation(0)
@@ -58,10 +52,10 @@ class Wizard extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWidth)
   }
-  updateWidth() {
+  updateWidth = () => {
     this.refreshAnimation(this.state.currentStep)
   }
-  navigationStepChange(key) {
+  navigationStepChange = key => {
     if (this.props.steps) {
       var validationState = true
       if (key > this.state.currentStep) {
@@ -98,7 +92,7 @@ class Wizard extends React.Component {
       }
     }
   }
-  nextButtonClick() {
+  nextButtonClick = () => {
     if (
       (this.props.validate &&
         ((this[this.props.steps[this.state.currentStep].stepId].isValidated !==
@@ -136,7 +130,7 @@ class Wizard extends React.Component {
       this.refreshAnimation(key)
     }
   }
-  previousButtonClick() {
+  previousButtonClick = () => {
     if (
       this[this.props.steps[this.state.currentStep].stepId].sendState !==
       undefined
@@ -163,7 +157,7 @@ class Wizard extends React.Component {
       this.refreshAnimation(key)
     }
   }
-  finishButtonClick() {
+  finishButtonClick = () => {
     if (
       this.props.validate &&
       ((this[this.props.steps[this.state.currentStep].stepId].isValidated !==
@@ -176,7 +170,7 @@ class Wizard extends React.Component {
       this.props.finishButtonClick()
     }
   }
-  refreshAnimation(index) {
+  refreshAnimation = index => {
     var total = this.props.steps.length
     var li_width = 100 / total
     var total_steps = this.props.steps.length
@@ -277,7 +271,7 @@ class Wizard extends React.Component {
               {this.state.previousButton ? (
                 <Button
                   className={this.props.previousButtonClasses}
-                  onClick={() => this.previousButtonClick()}
+                  onClick={() => this.previousButtonClick}
                 >
                   {this.props.previousButtonText}
                 </Button>
@@ -288,7 +282,7 @@ class Wizard extends React.Component {
                 <Button
                   color="rose"
                   className={this.props.nextButtonClasses}
-                  onClick={() => this.nextButtonClick()}
+                  onClick={() => this.nextButtonClick}
                 >
                   {this.props.nextButtonText}
                 </Button>
@@ -297,7 +291,7 @@ class Wizard extends React.Component {
                 <Button
                   color="rose"
                   className={this.finishButtonClasses}
-                  onClick={() => this.finishButtonClick()}
+                  onClick={() => this.finishButtonClick}
                 >
                   {this.props.finishButtonText}
                 </Button>

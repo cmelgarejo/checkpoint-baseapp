@@ -11,11 +11,10 @@ import Tooltip from '@material-ui/core/Tooltip'
 // import Icon from '@material-ui/core/Icon'
 
 // @material-ui/icons
-import Place from '@material-ui/icons/Place'
-import Store from '@material-ui/icons/Store'
-import DateRange from '@material-ui/icons/DateRange'
-import Refresh from '@material-ui/icons/Refresh'
-import Edit from '@material-ui/icons/Edit'
+import PlaceIcon from '@material-ui/icons/Place'
+import StoreIcon from '@material-ui/icons/Store'
+import RefreshIcon from '@material-ui/icons/Refresh'
+import EditIcon from '@material-ui/icons/Edit'
 import ArtTrack from '@material-ui/icons/ArtTrack'
 
 // core components
@@ -64,7 +63,7 @@ class Dashboard extends React.Component {
             <Card>
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">
-                  <Store />
+                  <StoreIcon />
                 </CardIcon>
                 <p className={classes.cardCategory}>{t('Venues')}</p>
                 <h3 className={classes.cardTitle}>
@@ -73,7 +72,7 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                  <DateRange />
+                  <StoreIcon />
                   {t('Total Venue Count')}
                 </div>
               </CardFooter>
@@ -116,7 +115,7 @@ class Dashboard extends React.Component {
                         classes={{ tooltip: classes.tooltip }}
                       >
                         <Button color="success" simple justIcon>
-                          <Refresh className={classes.underChartIcons} />
+                          <RefreshIcon className={classes.underChartIcons} />
                         </Button>
                       </Tooltip>
                       <Tooltip
@@ -126,7 +125,7 @@ class Dashboard extends React.Component {
                         classes={{ tooltip: classes.tooltip }}
                       >
                         <Button color="danger" simple justIcon>
-                          <Edit className={classes.underChartIcons} />
+                          <EditIcon className={classes.underChartIcons} />
                         </Button>
                       </Tooltip>
                     </div>
@@ -144,7 +143,7 @@ class Dashboard extends React.Component {
                       <h4>$899/night</h4>
                     </div> */}
                     <div className={`${classes.stats} ${classes.productStats}`}>
-                      <Place /> {v.address}
+                      <PlaceIcon /> {v.address}
                     </div>
                   </CardFooter>
                 </Card>

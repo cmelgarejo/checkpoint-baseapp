@@ -74,12 +74,9 @@ class LoginPage extends React.Component {
       this.setState({
         notif: { ...notif, message, open: true }
       })
-      setTimeout(
-        function() {
-          this.setState({ notif: initNotifications })
-        }.bind(this),
-        16000
-      )
+      setTimeout(() => {
+        this.setState({ notif: initNotifications })
+      }, 6000)
     }
   }
 

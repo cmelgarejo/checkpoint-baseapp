@@ -1,58 +1,57 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Icon from "@material-ui/core/Icon";
+import withStyles from '@material-ui/core/styles/withStyles'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Icon from '@material-ui/core/Icon'
 
 // @material-ui/icons
-import Timeline from "@material-ui/icons/Timeline";
-import Code from "@material-ui/icons/Code";
-import Group from "@material-ui/icons/Group";
-import Face from "@material-ui/icons/Face";
-import Email from "@material-ui/icons/Email";
+import Timeline from '@material-ui/icons/Timeline'
+import Code from '@material-ui/icons/Code'
+import Group from '@material-ui/icons/Group'
+import Face from '@material-ui/icons/Face'
+import Email from '@material-ui/icons/Email'
 // import LockOutline from "@material-ui/icons/LockOutline";
-import Check from "@material-ui/icons/Check";
+import Check from '@material-ui/icons/Check'
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-import InfoArea from "components/InfoArea/InfoArea.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import CustomInput from 'components/CustomInput/CustomInput.jsx'
+import InfoArea from 'components/InfoArea/InfoArea.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
 
-import registerPageStyle from "assets/jss/material-dashboard-pro-react/views/registerPageStyle";
+import registerPageStyle from 'assets/jss/material-dashboard-pro-react/views/registerPageStyle'
 
 class RegisterPage extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       checked: []
-    };
-    this.handleToggle = this.handleToggle.bind(this);
+    }
   }
-  handleToggle(value) {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  handleToggle = value => {
+    const { checked } = this.state
+    const currentIndex = checked.indexOf(value)
+    const newChecked = [...checked]
 
     if (currentIndex === -1) {
-      newChecked.push(value);
+      newChecked.push(value)
     } else {
-      newChecked.splice(currentIndex, 1);
+      newChecked.splice(currentIndex, 1)
     }
 
     this.setState({
       checked: newChecked
-    });
+    })
   }
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     return (
       <div className={classes.container}>
         <GridContainer justify="center">
@@ -112,7 +111,7 @@ class RegisterPage extends React.Component {
                               <Face className={classes.inputAdornmentIcon} />
                             </InputAdornment>
                           ),
-                          placeholder: "First Name..."
+                          placeholder: 'First Name...'
                         }}
                       />
                       <CustomInput
@@ -129,7 +128,7 @@ class RegisterPage extends React.Component {
                               <Email className={classes.inputAdornmentIcon} />
                             </InputAdornment>
                           ),
-                          placeholder: "Email..."
+                          placeholder: 'Email...'
                         }}
                       />
                       <CustomInput
@@ -148,7 +147,7 @@ class RegisterPage extends React.Component {
                               </Icon>
                             </InputAdornment>
                           ),
-                          placeholder: "Password..."
+                          placeholder: 'Password...'
                         }}
                       />
                       <FormControlLabel
@@ -172,7 +171,7 @@ class RegisterPage extends React.Component {
                         }
                         label={
                           <span>
-                            I agree to the{" "}
+                            I agree to the{' '}
                             <a href="#pablo">terms and conditions</a>.
                           </span>
                         }
@@ -190,12 +189,12 @@ class RegisterPage extends React.Component {
           </GridItem>
         </GridContainer>
       </div>
-    );
+    )
   }
 }
 
 RegisterPage.propTypes = {
   classes: PropTypes.object.isRequired
-};
+}
 
-export default withStyles(registerPageStyle)(RegisterPage);
+export default withStyles(registerPageStyle)(RegisterPage)

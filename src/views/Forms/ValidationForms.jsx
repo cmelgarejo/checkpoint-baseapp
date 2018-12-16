@@ -70,10 +70,6 @@ class ValidationForms extends React.Component {
       maxValue: '',
       maxValueState: ''
     }
-    this.registerClick = this.registerClick.bind(this)
-    this.loginClick = this.loginClick.bind(this)
-    this.typeClick = this.typeClick.bind(this)
-    this.rangeClick = this.rangeClick.bind(this)
   }
   // function that returns true if value is email, false otherwise
   verifyEmail(value) {
@@ -114,7 +110,7 @@ class ValidationForms extends React.Component {
       return false
     }
   }
-  change(event, stateName, type, stateNameEqualTo, maxValue) {
+  change = (event, stateName, type, stateNameEqualTo, maxValue) => {
     switch (type) {
       case 'email':
         if (this.verifyEmail(event.target.value)) {
@@ -215,7 +211,7 @@ class ValidationForms extends React.Component {
         break
     }
   }
-  registerClick() {
+  registerClick = () => {
     if (this.state.registerEmailState === '') {
       this.setState({ registerEmailState: 'error' })
     }
@@ -229,7 +225,7 @@ class ValidationForms extends React.Component {
       this.setState({ registerCheckboxState: 'error' })
     }
   }
-  loginClick() {
+  loginClick = () => {
     if (this.state.loginEmailState === '') {
       this.setState({ loginEmailState: 'error' })
     }
@@ -237,7 +233,7 @@ class ValidationForms extends React.Component {
       this.setState({ loginPasswordState: 'error' })
     }
   }
-  typeClick() {
+  typeClick = () => {
     if (this.state.requiredState === '') {
       this.setState({ requiredState: 'error' })
     }
@@ -254,7 +250,7 @@ class ValidationForms extends React.Component {
       this.setState({ equalToState: 'error' })
     }
   }
-  rangeClick() {
+  rangeClick = () => {
     if (this.state.minLengthState === '') {
       this.setState({ minLengthState: 'error' })
     }

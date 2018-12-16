@@ -33,12 +33,9 @@ class LandingPage extends React.Component {
   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    this.timeOutFunction = setTimeout(
-      function() {
-        this.setState({ heroAnimation: '' })
-      }.bind(this),
-      700
-    )
+    this.timeOutFunction = setTimeout(() => {
+      this.setState({ heroAnimation: '' })
+    }, 700)
   }
   componentWillUnmount() {
     clearTimeout(this.timeOutFunction)

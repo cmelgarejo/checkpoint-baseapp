@@ -22,13 +22,8 @@ class SweetAlertPage extends React.Component {
       alert: null,
       show: false
     }
-    this.hideAlert = this.hideAlert.bind(this)
-    this.successDelete = this.successDelete.bind(this)
-    this.cancelDetele = this.cancelDetele.bind(this)
-    this.inputConfirmAlert = this.inputConfirmAlert.bind(this)
-    this.inputConfirmAlertNext = this.inputConfirmAlertNext.bind(this)
   }
-  basicAlert() {
+  basicAlert = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -43,7 +38,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  titleAndTextAlert() {
+  titleAndTextAlert = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -60,7 +55,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  successAlert() {
+  successAlert = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -78,7 +73,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  htmlAlert() {
+  htmlAlert = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -96,7 +91,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  warningWithConfirmMessage() {
+  warningWithConfirmMessage = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -120,7 +115,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  warningWithConfirmAndCancelMessage() {
+  warningWithConfirmAndCancelMessage = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -144,7 +139,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  autoCloseAlert() {
+  autoCloseAlert = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -159,7 +154,7 @@ class SweetAlertPage extends React.Component {
     })
     setTimeout(this.hideAlert, 2000)
   }
-  inputAlert() {
+  inputAlert = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -179,11 +174,11 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  inputConfirmAlert(e) {
+  inputConfirmAlert = e => {
     this.setState({ alert: e })
     setTimeout(this.inputConfirmAlertNext, 200)
   }
-  inputConfirmAlertNext() {
+  inputConfirmAlertNext = () => {
     const inputValue = this.state.alert
     this.setState({
       alert: (
@@ -203,7 +198,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  successDelete() {
+  successDelete = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -221,7 +216,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  cancelDetele() {
+  cancelDetele = () => {
     this.setState({
       alert: (
         <SweetAlert
@@ -239,7 +234,7 @@ class SweetAlertPage extends React.Component {
       )
     })
   }
-  hideAlert() {
+  hideAlert = () => {
     this.setState({
       alert: null
     })
@@ -281,7 +276,7 @@ class SweetAlertPage extends React.Component {
               <CardBody>
                 <div className={classes.center}>
                   <h5>Basic example</h5>
-                  <Button color="rose" onClick={this.basicAlert.bind(this)}>
+                  <Button color="rose" onClick={this.basicAlert}>
                     Try me!
                   </Button>
                 </div>
@@ -293,10 +288,7 @@ class SweetAlertPage extends React.Component {
               <CardBody>
                 <div className={classes.center}>
                   <h5>A title with a text under</h5>
-                  <Button
-                    color="rose"
-                    onClick={this.titleAndTextAlert.bind(this)}
-                  >
+                  <Button color="rose" onClick={this.titleAndTextAlert}>
                     Try me!
                   </Button>
                 </div>
@@ -308,7 +300,7 @@ class SweetAlertPage extends React.Component {
               <CardBody>
                 <div className={classes.center}>
                   <h5>A success message</h5>
-                  <Button color="rose" onClick={this.successAlert.bind(this)}>
+                  <Button color="rose" onClick={this.successAlert}>
                     Try me!
                   </Button>
                 </div>
@@ -320,7 +312,7 @@ class SweetAlertPage extends React.Component {
               <CardBody>
                 <div className={classes.center}>
                   <h5>Custom HTML description</h5>
-                  <Button color="rose" onClick={this.htmlAlert.bind(this)}>
+                  <Button color="rose" onClick={this.htmlAlert}>
                     Try me!
                   </Button>
                 </div>
@@ -335,10 +327,7 @@ class SweetAlertPage extends React.Component {
                     A warning message, with a function attached to the "Confirm"
                     Button...
                   </h5>
-                  <Button
-                    color="rose"
-                    onClick={this.warningWithConfirmMessage.bind(this)}
-                  >
+                  <Button color="rose" onClick={this.warningWithConfirmMessage}>
                     Try me!
                   </Button>
                 </div>
@@ -355,7 +344,7 @@ class SweetAlertPage extends React.Component {
                   </h5>
                   <Button
                     color="rose"
-                    onClick={this.warningWithConfirmAndCancelMessage.bind(this)}
+                    onClick={this.warningWithConfirmAndCancelMessage}
                   >
                     Try me!
                   </Button>
@@ -368,7 +357,7 @@ class SweetAlertPage extends React.Component {
               <CardBody>
                 <div className={classes.center}>
                   <h5>A message with auto close timer set to 2 seconds</h5>
-                  <Button color="rose" onClick={this.autoCloseAlert.bind(this)}>
+                  <Button color="rose" onClick={this.autoCloseAlert}>
                     Try me!
                   </Button>
                 </div>
@@ -380,7 +369,7 @@ class SweetAlertPage extends React.Component {
               <CardBody>
                 <div className={classes.center}>
                   <h5>Modal window with input field</h5>
-                  <Button color="rose" onClick={this.inputAlert.bind(this)}>
+                  <Button color="rose" onClick={this.inputAlert}>
                     Try me!
                   </Button>
                 </div>

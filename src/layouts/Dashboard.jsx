@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
       miniActive: true
     }
     this.mainPanel = React.createRef()
-    this.resizeFunction = this.resizeFunction.bind(this)
+    this.resizeFunction = this.resizeFunction
   }
   componentDidMount() {
     if (navigator.platform.indexOf('Win') > -1) {
@@ -95,13 +95,13 @@ class Dashboard extends React.Component {
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen })
   }
-  getRoute() {
+  getRoute = () => {
     return this.props.location.pathname !== '/maps/full-screen-maps'
   }
-  sidebarMinimize() {
+  sidebarMinimize = () => {
     this.setState({ miniActive: !this.state.miniActive })
   }
-  resizeFunction() {
+  resizeFunction = () => {
     if (window.innerWidth >= 960) {
       this.setState({ mobileOpen: false })
     }
@@ -141,7 +141,7 @@ class Dashboard extends React.Component {
         />
         <div className={mainPanel} ref={this.mainPanel} id="mainDashboardPanel">
           <Header
-            sidebarMinimize={this.sidebarMinimize.bind(this)}
+            sidebarMinimize={this.sidebarMinimize}
             miniActive={this.state.miniActive}
             routes={filteredRoutes}
             handleDrawerToggle={this.handleDrawerToggle}

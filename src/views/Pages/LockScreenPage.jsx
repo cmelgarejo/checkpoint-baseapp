@@ -26,12 +26,9 @@ class LockScreenPage extends React.Component {
   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    this.timeOutFunction = setTimeout(
-      function() {
-        this.setState({ cardAnimaton: '' })
-      }.bind(this),
-      700
-    )
+    this.timeOutFunction = setTimeout(() => {
+      this.setState({ cardAnimaton: '' })
+    }, 700)
   }
   componentWillUnmount() {
     clearTimeout(this.timeOutFunction)

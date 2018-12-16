@@ -36,16 +36,14 @@ class RegularForms extends React.Component {
       selectedValue: null,
       selectedEnabled: 'b'
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleChangeEnabled = this.handleChangeEnabled.bind(this)
   }
-  handleChange(event) {
+  handleChange = event => {
     this.setState({ selectedValue: event.target.value })
   }
-  handleChangeEnabled(event) {
+  handleChangeEnabled = event => {
     this.setState({ selectedEnabled: event.target.value })
   }
-  handleToggle(value) {
+  handleToggle = value => {
     const { checked } = this.state
     const currentIndex = checked.indexOf(value)
     const newChecked = [...checked]

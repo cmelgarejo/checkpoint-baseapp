@@ -55,26 +55,23 @@ class Notifications extends React.Component {
       window.clearTimeout(id)
     }
   }
-  showNotification(place) {
+  showNotification = place => {
     if (!this.state[place]) {
       var x = []
       x[place] = true
       this.setState(x)
-      setTimeout(
-        function() {
-          x[place] = false
-          this.setState(x)
-        }.bind(this),
-        6000
-      )
+      setTimeout(() => {
+        x[place] = false
+        this.setState(x)
+      }, 6000)
     }
   }
-  handleClickOpen(modal) {
+  handleClickOpen = modal => {
     var x = []
     x[modal] = true
     this.setState(x)
   }
-  handleClose(modal) {
+  handleClose = modal => {
     var x = []
     x[modal] = false
     this.setState(x)

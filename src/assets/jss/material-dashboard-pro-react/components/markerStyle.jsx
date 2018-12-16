@@ -4,7 +4,7 @@
 
 const markerStyle = {
   marker: {},
-  popup: {},
+  popup: { minWidth: 260 },
   tooltip: {}
 }
 

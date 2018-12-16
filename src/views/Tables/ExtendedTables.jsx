@@ -36,9 +36,8 @@ class ExtendedTables extends React.Component {
     this.state = {
       checked: []
     }
-    this.handleToggle = this.handleToggle.bind(this)
   }
-  handleToggle(value) {
+  handleToggle = value => {
     const { checked } = this.state
     const currentIndex = checked.indexOf(value)
     const newChecked = [...checked]

@@ -38,7 +38,7 @@ const appStyle = theme => ({
   content: {
     marginTop: '60px',
     padding: '5px 0px',
-    minHeight: 'calc(100vh - 123px)'
+    minHeight: 'calc(100vh - 71px)'
   },
   container: { ...containerFluid },
   mainPanelSidebarMini: {

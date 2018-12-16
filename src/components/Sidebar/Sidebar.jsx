@@ -68,13 +68,12 @@ class Sidebar extends React.Component {
       // openPages: this.activeRoute('-page'),
       miniActive: true
     }
-    this.activeRoute.bind(this)
   }
   // verifies if routeName is the one active (in browser input)
-  activeRoute(routeName) {
+  activeRoute = routeName => {
     return this.props.location.pathname.indexOf(routeName) > -1 ? true : false
   }
-  openCollapse(collapse) {
+  openCollapse = collapse => {
     var st = {}
     st[collapse] = !this.state[collapse]
     this.setState(st)
