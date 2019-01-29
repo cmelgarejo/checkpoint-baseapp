@@ -45,7 +45,7 @@
     "react": "16.7.0",
     "react-big-calendar": "0.20.3",
     "react-bootstrap-sweetalert": "4.4.1",
-    "react-chartist": "0.13.1",
+    "react-chartist": "0.13.2",
     "react-check-auth": "^0.2.0-alpha.2",
     "react-context-global-state": "^2.1.5",
     "react-datetime": "2.16.3",
