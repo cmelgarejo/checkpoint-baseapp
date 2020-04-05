@@ -18,7 +18,7 @@ import HeaderLinks from './HeaderLinks'
 import Button from 'components/CustomButtons/Button.jsx'
 
 import headerStyle from 'assets/jss/material-dashboard-pro-react/components/headerStyle.jsx'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 function Header({ ...props }) {
   function makeBrand() {
@@ -105,4 +105,4 @@ Header.propTypes = {
   color: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger'])
 }
 
-export default withNamespaces('header')(withStyles(headerStyle)(Header))
+export default withTranslation('header')(withStyles(headerStyle)(Header))

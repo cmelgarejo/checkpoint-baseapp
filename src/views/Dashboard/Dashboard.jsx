@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 import dataClient from 'shared/RESTClient'
 import { getImage } from 'shared/utils'
@@ -159,6 +159,6 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withNamespaces('dashboard')(
+export default withTranslation('dashboard')(
   withStyles(dashboardStyle)(Dashboard)
 )

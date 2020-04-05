@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -163,6 +163,6 @@ PagesHeader.propTypes = {
   color: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger'])
 }
 
-export default withNamespaces('page-header')(
+export default withTranslation('page-header')(
   withStyles(pagesHeaderStyle)(PagesHeader)
 )

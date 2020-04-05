@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -71,4 +71,4 @@ Footer.propTypes = {
   white: PropTypes.bool
 }
 
-export default withNamespaces('footer')(withStyles(footerStyle)(Footer))
+export default withTranslation('footer')(withStyles(footerStyle)(Footer))

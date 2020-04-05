@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -79,6 +79,6 @@ LandingPage.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withNamespaces('landing')(
+export default withTranslation('landing')(
   withStyles(landingPageStyle)(LandingPage)
 )

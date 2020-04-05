@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import CircularProgress from '@material-ui/core/CircularProgress'
-import withStyles from '@material-ui/core/styles/withStyles'
+import CircularProgress from "@material-ui/core/CircularProgress";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-import GridContainer from 'components/Grid/GridContainer.jsx'
-import GridItem from 'components/Grid/GridItem.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
+import Button from "components/CustomButtons/Button.jsx";
 
-import loaderStyle from 'assets/jss/material-dashboard-pro-react/views/loaderStyle.jsx'
-import { withNamespaces } from 'react-i18next'
+import loaderStyle from "assets/jss/material-dashboard-pro-react/views/loaderStyle.jsx";
 
 const Loader = ({ classes, t, error, retry, message }) => {
   if (error) {
@@ -22,10 +21,10 @@ const Loader = ({ classes, t, error, retry, message }) => {
       >
         <GridItem item xs={6}>
           {t(`errorMessage`)}
-          <Button onClick={retry}>{t('Retry')}></Button>
+          <Button onClick={retry}>{t("Retry")}></Button>
         </GridItem>
       </GridContainer>
-    )
+    );
   }
 
   return (
@@ -40,10 +39,10 @@ const Loader = ({ classes, t, error, retry, message }) => {
         <CircularProgress size={144} />
       </GridItem>
       <GridItem item xs={12}>
-        <h5>{message && t('nowLoading')}</h5>
+        <h5>{message && t("nowLoading")}</h5>
       </GridItem>
     </GridContainer>
-  )
-}
+  );
+};
 
-export default withNamespaces('loader')(withStyles(loaderStyle)(Loader))
+export default withStyles(loaderStyle)(Loader);

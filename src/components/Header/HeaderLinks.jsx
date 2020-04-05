@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 // import classNames from 'classnames'
 // import { Manager, Target, Popper } from "react-popper";
 import { withRouter } from 'react-router-dom'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { jwtClearToken } from 'shared/jwt'
 import { resetAuthState } from 'shared/state'
 
@@ -203,6 +203,6 @@ HeaderLinks.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withNamespaces('header-links')(
+export default withTranslation('header-links')(
   withRouter(withStyles(headerLinksStyle)(HeaderLinks))
 )

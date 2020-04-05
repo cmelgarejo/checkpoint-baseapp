@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -68,4 +68,6 @@ LanguagePicker.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withNamespaces()(withStyles(languagePickerStyle)(LanguagePicker))
+export default withTranslation()(
+  withStyles(languagePickerStyle)(LanguagePicker)
+)

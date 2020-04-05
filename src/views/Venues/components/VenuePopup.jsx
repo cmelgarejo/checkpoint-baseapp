@@ -6,7 +6,7 @@ import CardBody from 'components/Card/CardBody.jsx'
 import CardFooter from 'components/Card/CardFooter.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { getImage } from 'shared/utils'
 
 // @material-ui/icons
@@ -40,4 +40,4 @@ const VenuePopup = ({ classes, t, venue }) => (
   </GridContainer>
 )
 
-export default withNamespaces('venues')(withStyles(venuesStyle)(VenuePopup))
+export default withTranslation('venues')(withStyles(venuesStyle)(VenuePopup))

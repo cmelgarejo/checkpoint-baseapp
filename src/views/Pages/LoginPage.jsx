@@ -33,7 +33,7 @@ import Snackbar from 'components/Snackbar/Snackbar.jsx'
 
 import loginPageStyle from 'assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx'
 
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 const OK = 'success',
   ERR = 'error'
@@ -240,4 +240,4 @@ LoginPage.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withNamespaces('login')(withStyles(loginPageStyle)(LoginPage))
+export default withTranslation('login')(withStyles(loginPageStyle)(LoginPage))

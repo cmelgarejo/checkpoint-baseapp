@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 // creates a beautiful scrollbar
 import PerfectScrollbar from 'perfect-scrollbar'
@@ -169,4 +169,4 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withNamespaces('dashboard')(withStyles(appStyle)(Dashboard))
+export default withTranslation('dashboard')(withStyles(appStyle)(Dashboard))

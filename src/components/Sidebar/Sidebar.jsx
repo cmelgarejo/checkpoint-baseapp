@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNamespaces } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from 'perfect-scrollbar'
 import { NavLink } from 'react-router-dom'
@@ -456,4 +456,4 @@ Sidebar.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default withNamespaces('sidebar')(withStyles(sidebarStyle)(Sidebar))
+export default withTranslation('sidebar')(withStyles(sidebarStyle)(Sidebar))
